@@ -1,0 +1,177 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-critical: var(--critical);
+  --color-critical-foreground: var(--critical-foreground);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.985 0.005 240);
+  --foreground: oklch(0.22 0.04 250);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 250);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 250);
+
+  /* Primary = dark navy #1e3a5f */
+  --primary: oklch(0.32 0.06 252);
+  --primary-foreground: oklch(0.99 0.005 240);
+
+  /* Secondary = light surface */
+  --secondary: oklch(0.96 0.008 250);
+  --secondary-foreground: oklch(0.28 0.05 252);
+
+  --muted: oklch(0.96 0.008 250);
+  --muted-foreground: oklch(0.5 0.02 250);
+
+  --accent: oklch(0.55 0.18 260);            /* #2563eb */
+  --accent-foreground: oklch(0.99 0.005 240);
+
+  --destructive: oklch(0.58 0.22 27);        /* #dc2626 */
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.91 0.01 250);
+  --input: oklch(0.91 0.01 250);
+  --ring: oklch(0.55 0.18 260);
+
+  /* Domain-specific */
+  --navy: oklch(0.27 0.05 252);              /* #1e3a5f sidebar */
+  --navy-foreground: oklch(0.97 0.01 240);
+
+  --success: oklch(0.6 0.16 150);            /* #16a34a */
+  --success-foreground: oklch(0.99 0 0);
+
+  --warning: oklch(0.7 0.16 65);             /* #d97706 */
+  --warning-foreground: oklch(0.18 0.04 60);
+
+  --info: oklch(0.6 0.15 250);
+  --info-foreground: oklch(0.99 0 0);
+
+  --critical: oklch(0.58 0.22 27);
+  --critical-foreground: oklch(0.99 0 0);
+
+  --sidebar: var(--navy);
+  --sidebar-foreground: var(--navy-foreground);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { letter-spacing: -0.01em; }
+}
+
+@layer components {
+  .input {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    color: var(--color-foreground);
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .input:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 18%, transparent); }
+  .input:disabled { background: var(--color-muted); color: var(--color-muted-foreground); }
+  .input-ghost {
+    background: transparent; border: 1px solid transparent; padding: 0.35rem 0.5rem;
+    border-radius: 0.25rem; font-size: 0.875rem; outline: none;
+  }
+  .input-ghost:focus { border-color: var(--color-accent); background: var(--color-card); }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--color-accent); color: var(--color-accent-foreground);
+    padding: 0.55rem 1rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: transparent; color: var(--color-foreground);
+    padding: 0.55rem 1rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;
+    border: 1px solid var(--color-border);
+  }
+  .btn-ghost:hover { background: var(--color-muted); }
+  .btn-danger {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--color-destructive); color: var(--color-destructive-foreground);
+    padding: 0.55rem 1rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .mono { font-family: var(--font-mono); }
+  .pulse-dot {
+    width: 8px; height: 8px; border-radius: 9999px;
+    background: var(--color-success);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-success) 60%, transparent);
+    animation: pulseDot 1.6s infinite;
+  }
+  @keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-success) 60%, transparent); }
+    70% { box-shadow: 0 0 0 8px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
+  }
+  .fade-in { animation: fadeIn 0.25s ease-out; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .slide-in { animation: slideIn 0.3s ease-out; }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(8px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+}

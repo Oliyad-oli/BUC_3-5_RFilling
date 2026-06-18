@@ -1,0 +1,1 @@
+export { DailyReturnStatusBadge as MonthlyReturnStatusBadge } from "@/components/daily-return/DailyReturnStatusBadge";
