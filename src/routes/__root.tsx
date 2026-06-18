@@ -59,7 +59,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "ERA E-Filing — Ethiopian Revenue Authority" },
       { name: "description", content: "Ethiopian Revenue Authority E-Filing Core System" },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "stylesheet", href: appCss }
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
