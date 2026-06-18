@@ -4,7 +4,7 @@ import { mockAuthData, Session } from "../mock/auth";
 
 interface AuthState {
   session: Session | null;
-  loginTaxpayer: (tin: string, name: string) => boolean;
+  loginTaxpayer: (tin: string, password: string) => boolean;
   loginOfficer: (username: string, password: string) => boolean;
   loginAuditor: (username: string, password: string) => boolean;
   loginAdmin: (username: string, password: string) => boolean;
@@ -18,9 +18,9 @@ export const useAuth = create<AuthState>()(
     (set, get) => ({
       session: null,
 
-      loginTaxpayer: (tin, name) => {
+      loginTaxpayer: (tin, password) => {
         const user = mockAuthData.taxpayers.find(
-          (u) => u.tin === tin && u.name.toLowerCase() === name.toLowerCase()
+          (u) => u.tin === tin && u.password === password
         );
         if (user) {
           const now = new Date().toISOString();

@@ -9,6 +9,7 @@ export interface TaxpayerUser extends BaseUser {
   role: "TAXPAYER";
   tin: string;
   name: string;
+  password?: string;
 }
 
 export interface InternalUser extends BaseUser {
@@ -19,9 +20,9 @@ export interface InternalUser extends BaseUser {
 export type User = TaxpayerUser | InternalUser;
 
 export const MOCK_TAXPAYERS = [
-  { tin: "1000123456", name: "Abebe Kebede", id: "t1", role: "TAXPAYER" as const },
-  { tin: "1000456789", name: "Hana Bekele", id: "t2", role: "TAXPAYER" as const },
-  { tin: "1000789123", name: "Samuel Tadesse", id: "t3", role: "TAXPAYER" as const },
+  { tin: "1000123456", name: "Abebe Kebede", password: "Taxpayer@123", id: "t1", role: "TAXPAYER" as const },
+  { tin: "1000456789", name: "Hana Bekele", password: "Taxpayer@123", id: "t2", role: "TAXPAYER" as const },
+  { tin: "1000789123", name: "Samuel Tadesse", password: "Taxpayer@123", id: "t3", role: "TAXPAYER" as const },
 ];
 
 export const MOCK_INTERNAL_USERS = [
