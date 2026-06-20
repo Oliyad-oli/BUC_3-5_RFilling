@@ -26,8 +26,8 @@ function TaxpayerLogin() {
   const [isLoading, setIsLoading] = useState(false);
   
   // Login State
+  const [name, setName] = useState("");
   const [tin, setTin] = useState("");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   
   // Forgot Password State
@@ -51,14 +51,14 @@ function TaxpayerLogin() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
+      const finalName = name || "Abebe Kebede";
       const finalTin = tin || "1000123456";
-      const finalPass = password || "Taxpayer@123";
 
-      if (login(finalTin, finalPass)) {
+      if (login(finalName, finalTin)) {
         toast.success("Welcome back to the portal");
         navigate({ to: "/" });
       } else {
-        toast.error("Invalid TIN or Password");
+        toast.error("Invalid Name or TIN Number");
       }
     }, 800);
   };
@@ -92,8 +92,8 @@ function TaxpayerLogin() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      toast.success("Password reset successfully! Please login with your new password.");
-      setPassword(newPassword);
+      toast.success("Password reset successfully! Please login with your new TIN.");
+      setTin(newPassword);
       setStep("login");
     }, 1500);
   };
@@ -189,38 +189,38 @@ function TaxpayerLogin() {
               {step === "login" && (
                 <form onSubmit={handleLoginSubmit} className="space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
                   <div className="space-y-2">
-                    <Label htmlFor="tin" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">TIN Number</Label>
+                    <Label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Full Name</Label>
                     <Input 
-                      id="tin"
+                      id="name"
                       type="text" 
-                      value={tin}
-                      onChange={e => setTin(e.target.value)}
-                      className="font-mono text-lg tracking-wider h-12 focus:ring-accent/50 focus:border-accent"
-                      placeholder="1000123456"
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                      className="text-base h-12 focus:ring-accent/50 focus:border-accent"
+                      placeholder="Abebe Kebede"
                       disabled={isLoading}
                     />
                   </div>
                   
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <Label htmlFor="password" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Password</Label>
+                      <Label htmlFor="tin" className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">TIN Number (Password)</Label>
                       <button 
                         type="button" 
                         onClick={() => setStep("forgot-email")}
                         className="text-xs font-medium text-accent hover:text-primary transition-colors focus:outline-none hover:underline"
                         disabled={isLoading}
                       >
-                        Forgot Password?
+                        Forgot TIN?
                       </button>
                     </div>
                     <div className="relative">
                       <Input 
-                        id="password"
+                        id="tin"
                         type={showPassword ? "text" : "password"} 
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        className="pr-12 h-12 focus:ring-accent/50 focus:border-accent"
-                        placeholder="••••••••"
+                        value={tin}
+                        onChange={e => setTin(e.target.value)}
+                        className="font-mono text-lg tracking-wider pr-12 h-12 focus:ring-accent/50 focus:border-accent"
+                        placeholder="1000123456"
                         disabled={isLoading}
                       />
                       <button

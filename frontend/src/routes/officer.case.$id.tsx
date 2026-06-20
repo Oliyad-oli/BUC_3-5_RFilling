@@ -167,9 +167,8 @@ function CaseDetail() {
                 ["REQUEST_AMENDMENT", FileEdit, "text-warning", "Taxpayer must correct and refile. Return → AMENDMENT_DRAFT"],
                 ["CONFIRM_FRAUD", ShieldAlert, "text-destructive", "Confirm fraud. Return → FRAUD_CONFIRMED (terminal)"],
               ] as const).map(([key, Icon, color, sub]) => (
-                <label key={key} className={`flex items-start gap-3 p-3 border rounded-md cursor-pointer transition-colors ${
-                  decision === key ? "border-accent bg-accent/5" : "border-border hover:bg-muted/30"
-                }`}>
+                <label key={key} className={`flex items-start gap-3 p-3 border rounded-md cursor-pointer transition-colors ${decision === key ? "border-accent bg-accent/5" : "border-border hover:bg-muted/30"
+                  }`}>
                   <input type="radio" name="dec" checked={decision === key} onChange={() => setDecision(key)} className="mt-1 accent-accent" />
                   <Icon className={`h-4 w-4 mt-0.5 ${color}`} />
                   <div>
