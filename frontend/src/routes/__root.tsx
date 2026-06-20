@@ -12,6 +12,7 @@ import {
 import { AppShell } from "@/components/AppShell";
 import { Toaster } from "@/components/ui/sonner";
 import { useAuth } from "@/lib/auth-service";
+import { GlobalErrorBoundary } from "@/components/GlobalErrorBoundary";
 
 import appCss from "../styles.css?url";
 
@@ -83,20 +84,25 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const session = useAuth(s => s.session);
   const routerState = useRouterState();
-  const isLogin = routerState.location.pathname === "/login";
+  const publicRoutes = ["/login", "/signup", "/officer/login"];
+  const isPublic = publicRoutes.includes(routerState.location.pathname);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      {!session && !isLogin ? (
-        <Navigate to="/login" />
-      ) : isLogin ? (
-        <Outlet />
-      ) : (
-        <AppShell>
+    <GlobalErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        {!session && !isPublic ? (
+          <Navigate to="/login" />
+        ) : session && isPublic ? (
+          <Navigate to="/" />
+        ) : isPublic ? (
           <Outlet />
-        </AppShell>
-      )}
-      <Toaster richColors position="top-right" />
-    </QueryClientProvider>
+        ) : (
+          <AppShell>
+            <Outlet />
+          </AppShell>
+        )}
+        <Toaster richColors position="top-right" />
+      </QueryClientProvider>
+    </GlobalErrorBoundary>
   );
 }

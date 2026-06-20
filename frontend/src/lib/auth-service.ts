@@ -11,6 +11,7 @@ interface AuthState {
   logout: () => void;
   validateSession: () => boolean;
   refreshSession: () => void;
+  signupTaxpayer: (userData: any) => boolean;
 }
 
 export const useAuth = create<AuthState>()(
@@ -28,6 +29,13 @@ export const useAuth = create<AuthState>()(
           return true;
         }
         return false;
+      },
+
+      signupTaxpayer: (userData) => {
+        // Mock a successful signup by returning true
+        // For a real app, this would make an API call to create the user
+        // and perhaps automatically log them in or redirect them to login.
+        return true;
       },
 
       loginOfficer: (username, password) => {

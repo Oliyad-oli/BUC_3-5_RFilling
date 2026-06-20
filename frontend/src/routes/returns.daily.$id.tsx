@@ -8,8 +8,11 @@ import { DailyReturnSummaryCard } from "@/components/daily-return/DailyReturnSum
 import { DailyReturnAttachments } from "@/components/daily-return/DailyReturnAttachments";
 import { DailyReturnTimeline } from "@/components/daily-return/DailyReturnTimeline";
 
+import { RouteError } from "@/components/RouteError";
+
 export const Route = createFileRoute("/returns/daily/$id")({
   component: DailyReturnDetail,
+  errorComponent: RouteError,
 });
 
 function DailyReturnDetail() {

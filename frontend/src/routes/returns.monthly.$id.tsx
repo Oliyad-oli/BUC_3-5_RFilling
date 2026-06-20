@@ -9,8 +9,11 @@ import { MonthlyReturnSummary } from "@/components/monthly-return/MonthlyReturnS
 import { MonthlyReturnAttachments } from "@/components/monthly-return/MonthlyReturnAttachments";
 import { MonthlyReturnWorkflowTimeline } from "@/components/monthly-return/MonthlyReturnWorkflowTimeline";
 
+import { RouteError } from "@/components/RouteError";
+
 export const Route = createFileRoute("/returns/monthly/$id")({
   component: MonthlyReturnDetail,
+  errorComponent: RouteError,
 });
 
 function MonthlyReturnDetail() {

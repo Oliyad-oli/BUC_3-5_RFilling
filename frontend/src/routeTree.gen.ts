@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ObligationsRouteImport } from './routes/obligations'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as SplatRouteImport } from './routes/$'
@@ -16,11 +17,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SystemIndexRouteImport } from './routes/system.index'
 import { Route as ReturnsIndexRouteImport } from './routes/returns.index'
 import { Route as OfficerIndexRouteImport } from './routes/officer.index'
+import { Route as AuditorIndexRouteImport } from './routes/auditor.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as SystemValidationRouteImport } from './routes/system.validation'
 import { Route as SystemOutboxRouteImport } from './routes/system.outbox'
 import { Route as ReturnsNewRouteImport } from './routes/returns.new'
 import { Route as ReturnsIdRouteImport } from './routes/returns.$id'
 import { Route as OfficerQueueRouteImport } from './routes/officer.queue'
+import { Route as OfficerLoginRouteImport } from './routes/officer.login'
 import { Route as OfficerHistoryRouteImport } from './routes/officer.history'
 import { Route as ReturnsMonthlyIndexRouteImport } from './routes/returns.monthly.index'
 import { Route as ReturnsDailyIndexRouteImport } from './routes/returns.daily.index'
@@ -30,6 +34,11 @@ import { Route as ReturnsDailyNewRouteImport } from './routes/returns.daily.new'
 import { Route as ReturnsDailyIdRouteImport } from './routes/returns.daily.$id'
 import { Route as OfficerCaseIdRouteImport } from './routes/officer.case.$id'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ObligationsRoute = ObligationsRouteImport.update({
   id: '/obligations',
   path: '/obligations',
@@ -65,6 +74,16 @@ const OfficerIndexRoute = OfficerIndexRouteImport.update({
   path: '/officer/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuditorIndexRoute = AuditorIndexRouteImport.update({
+  id: '/auditor/',
+  path: '/auditor/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SystemValidationRoute = SystemValidationRouteImport.update({
   id: '/system/validation',
   path: '/system/validation',
@@ -88,6 +107,11 @@ const ReturnsIdRoute = ReturnsIdRouteImport.update({
 const OfficerQueueRoute = OfficerQueueRouteImport.update({
   id: '/officer/queue',
   path: '/officer/queue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfficerLoginRoute = OfficerLoginRouteImport.update({
+  id: '/officer/login',
+  path: '/officer/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OfficerHistoryRoute = OfficerHistoryRouteImport.update({
@@ -136,12 +160,16 @@ export interface FileRoutesByFullPath {
   '/$': typeof SplatRoute
   '/login': typeof LoginRoute
   '/obligations': typeof ObligationsRoute
+  '/signup': typeof SignupRoute
   '/officer/history': typeof OfficerHistoryRoute
+  '/officer/login': typeof OfficerLoginRoute
   '/officer/queue': typeof OfficerQueueRoute
   '/returns/$id': typeof ReturnsIdRoute
   '/returns/new': typeof ReturnsNewRoute
   '/system/outbox': typeof SystemOutboxRoute
   '/system/validation': typeof SystemValidationRoute
+  '/admin/': typeof AdminIndexRoute
+  '/auditor/': typeof AuditorIndexRoute
   '/officer/': typeof OfficerIndexRoute
   '/returns/': typeof ReturnsIndexRoute
   '/system/': typeof SystemIndexRoute
@@ -158,12 +186,16 @@ export interface FileRoutesByTo {
   '/$': typeof SplatRoute
   '/login': typeof LoginRoute
   '/obligations': typeof ObligationsRoute
+  '/signup': typeof SignupRoute
   '/officer/history': typeof OfficerHistoryRoute
+  '/officer/login': typeof OfficerLoginRoute
   '/officer/queue': typeof OfficerQueueRoute
   '/returns/$id': typeof ReturnsIdRoute
   '/returns/new': typeof ReturnsNewRoute
   '/system/outbox': typeof SystemOutboxRoute
   '/system/validation': typeof SystemValidationRoute
+  '/admin': typeof AdminIndexRoute
+  '/auditor': typeof AuditorIndexRoute
   '/officer': typeof OfficerIndexRoute
   '/returns': typeof ReturnsIndexRoute
   '/system': typeof SystemIndexRoute
@@ -181,12 +213,16 @@ export interface FileRoutesById {
   '/$': typeof SplatRoute
   '/login': typeof LoginRoute
   '/obligations': typeof ObligationsRoute
+  '/signup': typeof SignupRoute
   '/officer/history': typeof OfficerHistoryRoute
+  '/officer/login': typeof OfficerLoginRoute
   '/officer/queue': typeof OfficerQueueRoute
   '/returns/$id': typeof ReturnsIdRoute
   '/returns/new': typeof ReturnsNewRoute
   '/system/outbox': typeof SystemOutboxRoute
   '/system/validation': typeof SystemValidationRoute
+  '/admin/': typeof AdminIndexRoute
+  '/auditor/': typeof AuditorIndexRoute
   '/officer/': typeof OfficerIndexRoute
   '/returns/': typeof ReturnsIndexRoute
   '/system/': typeof SystemIndexRoute
@@ -205,12 +241,16 @@ export interface FileRouteTypes {
     | '/$'
     | '/login'
     | '/obligations'
+    | '/signup'
     | '/officer/history'
+    | '/officer/login'
     | '/officer/queue'
     | '/returns/$id'
     | '/returns/new'
     | '/system/outbox'
     | '/system/validation'
+    | '/admin/'
+    | '/auditor/'
     | '/officer/'
     | '/returns/'
     | '/system/'
@@ -227,12 +267,16 @@ export interface FileRouteTypes {
     | '/$'
     | '/login'
     | '/obligations'
+    | '/signup'
     | '/officer/history'
+    | '/officer/login'
     | '/officer/queue'
     | '/returns/$id'
     | '/returns/new'
     | '/system/outbox'
     | '/system/validation'
+    | '/admin'
+    | '/auditor'
     | '/officer'
     | '/returns'
     | '/system'
@@ -249,12 +293,16 @@ export interface FileRouteTypes {
     | '/$'
     | '/login'
     | '/obligations'
+    | '/signup'
     | '/officer/history'
+    | '/officer/login'
     | '/officer/queue'
     | '/returns/$id'
     | '/returns/new'
     | '/system/outbox'
     | '/system/validation'
+    | '/admin/'
+    | '/auditor/'
     | '/officer/'
     | '/returns/'
     | '/system/'
@@ -272,12 +320,16 @@ export interface RootRouteChildren {
   SplatRoute: typeof SplatRoute
   LoginRoute: typeof LoginRoute
   ObligationsRoute: typeof ObligationsRoute
+  SignupRoute: typeof SignupRoute
   OfficerHistoryRoute: typeof OfficerHistoryRoute
+  OfficerLoginRoute: typeof OfficerLoginRoute
   OfficerQueueRoute: typeof OfficerQueueRoute
   ReturnsIdRoute: typeof ReturnsIdRoute
   ReturnsNewRoute: typeof ReturnsNewRoute
   SystemOutboxRoute: typeof SystemOutboxRoute
   SystemValidationRoute: typeof SystemValidationRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AuditorIndexRoute: typeof AuditorIndexRoute
   OfficerIndexRoute: typeof OfficerIndexRoute
   ReturnsIndexRoute: typeof ReturnsIndexRoute
   SystemIndexRoute: typeof SystemIndexRoute
@@ -292,6 +344,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/obligations': {
       id: '/obligations'
       path: '/obligations'
@@ -341,6 +400,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OfficerIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auditor/': {
+      id: '/auditor/'
+      path: '/auditor'
+      fullPath: '/auditor/'
+      preLoaderRoute: typeof AuditorIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/system/validation': {
       id: '/system/validation'
       path: '/system/validation'
@@ -374,6 +447,13 @@ declare module '@tanstack/react-router' {
       path: '/officer/queue'
       fullPath: '/officer/queue'
       preLoaderRoute: typeof OfficerQueueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/officer/login': {
+      id: '/officer/login'
+      path: '/officer/login'
+      fullPath: '/officer/login'
+      preLoaderRoute: typeof OfficerLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/officer/history': {
@@ -440,12 +520,16 @@ const rootRouteChildren: RootRouteChildren = {
   SplatRoute: SplatRoute,
   LoginRoute: LoginRoute,
   ObligationsRoute: ObligationsRoute,
+  SignupRoute: SignupRoute,
   OfficerHistoryRoute: OfficerHistoryRoute,
+  OfficerLoginRoute: OfficerLoginRoute,
   OfficerQueueRoute: OfficerQueueRoute,
   ReturnsIdRoute: ReturnsIdRoute,
   ReturnsNewRoute: ReturnsNewRoute,
   SystemOutboxRoute: SystemOutboxRoute,
   SystemValidationRoute: SystemValidationRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AuditorIndexRoute: AuditorIndexRoute,
   OfficerIndexRoute: OfficerIndexRoute,
   ReturnsIndexRoute: ReturnsIndexRoute,
   SystemIndexRoute: SystemIndexRoute,

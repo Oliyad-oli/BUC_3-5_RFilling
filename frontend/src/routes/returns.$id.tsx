@@ -5,8 +5,11 @@ import { formatETB } from "@/lib/mock-data";
 import { useState } from "react";
 import { ArrowLeft, AlertTriangle, Clock, RefreshCcw, ShieldAlert } from "lucide-react";
 
+import { RouteError } from "@/components/RouteError";
+
 export const Route = createFileRoute("/returns/$id")({
   component: ReturnDetail,
+  errorComponent: RouteError,
 });
 
 const TABS = ["Overview", "Schedules & Line Items", "Calculation History", "Audit Trail"] as const;
@@ -14,7 +17,7 @@ const TABS = ["Overview", "Schedules & Line Items", "Calculation History", "Audi
 function ReturnDetail() {
   const { id } = Route.useParams();
   const r = useApp((s) => s.returns.find((x) => x.id === id));
-  const complianceChecks = useApp((s) => s.complianceChecks.filter((c) => c.returnId === id));
+  const complianceChecks = useApp((s) => s.complianceChecks).filter((c) => c.returnId === id);
   const setStatus = useApp((s) => s.setStatus);
   const appendEvent = useApp((s) => s.appendEvent);
   const navigate = useNavigate();

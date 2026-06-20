@@ -34,7 +34,7 @@ import {
 } from "./demo-engine";
 import { type DemoScenario, defaultScenario } from "./demo-scenarios";
 
-export type Role = "taxpayer" | "officer" | "system";
+export type Role = "taxpayer" | "officer" | "auditor" | "admin" | "system";
 
 export interface Notification {
   id: string;

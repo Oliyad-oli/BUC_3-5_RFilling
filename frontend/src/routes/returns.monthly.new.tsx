@@ -160,11 +160,11 @@ function NewMonthlyReturn() {
   };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
-      <div className="flex items-start justify-between flex-wrap gap-3">
+    <div className="space-y-6 lg:space-y-8 max-w-5xl mx-auto animate-in fade-in duration-500 pb-12">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold">Submit Monthly Return</h1>
-          <p className="text-sm text-muted-foreground mt-1">Reference: <span className="mono">{id}</span></p>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground">Submit Monthly Return</h1>
+          <p className="text-sm text-muted-foreground mt-1">Reference: <span className="mono font-medium text-foreground">{id}</span></p>
         </div>
       </div>
 
@@ -232,7 +232,7 @@ function NewMonthlyReturn() {
         )}
       </Card>
 
-      <button className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1" onClick={() => navigate({ to: "/returns/monthly" })}>
+      <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2 mt-4" onClick={() => navigate({ to: "/returns/monthly" })}>
         <ArrowLeft className="h-4 w-4" /> Back to monthly returns
       </button>
 
