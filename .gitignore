@@ -1,0 +1,29 @@
+# ── Reference source (do not commit to working repo) ──
+bs-filing-core-server_1/
+
+# ── Document files ──
+*.docx
+*.pdf
+*.xlsx
+
+# ── Utility scripts ──
+extract_docx.py
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── IDE ──
+.idea/
+*.iml
+.vscode/
+
+# ── Node ──
+node_modules/
+dist/
+.env
+.env.local
+bs-filing-core-server_1/
+*.docx
+*.pdf
+extract_docx.py

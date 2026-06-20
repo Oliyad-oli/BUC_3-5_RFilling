@@ -1,0 +1,3 @@
+# Flyway migration scripts live here.
+# Naming convention: V{version}__{description}.sql
+# NEVER edit a migration that has been committed. Always add a new VNN__ file.
