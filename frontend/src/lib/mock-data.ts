@@ -33,7 +33,7 @@ export type ReviewType =
 export type ReviewItemStatus = "OPEN" | "RESOLVED";
 
 // ── Officer Decisions (backend-aligned) ──
-export type OfficerDecision = "CLEAR" | "REQUEST_AMENDMENT" | "CONFIRM_FRAUD";
+export type OfficerDecision = "CLEAR" | "CONFIRM_FRAUD";
 
 // ── Legacy alias kept for backward compat during migration ──
 export type ResolutionAction = OfficerDecision;

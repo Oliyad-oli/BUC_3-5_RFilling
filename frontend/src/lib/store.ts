@@ -321,11 +321,6 @@ export const useApp = create<State>((set, get) => ({
         notificationText = `Your ${reviewCase.period} ${reviewCase.taxType} return was cleared by officer review.`;
         notificationKind = "success";
         break;
-      case "REQUEST_AMENDMENT":
-        newReturnStatus = "AMENDMENT_DRAFT";
-        notificationText = `Amendment requested for your ${reviewCase.period} ${reviewCase.taxType} return.`;
-        notificationKind = "warning";
-        break;
       case "CONFIRM_FRAUD":
         newReturnStatus = "FRAUD_CONFIRMED";
         notificationText = `Your ${reviewCase.period} ${reviewCase.taxType} return has been flagged. Contact the revenue authority.`;

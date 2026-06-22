@@ -1,164 +1,85 @@
 spring:
   application:
-    name: tax-filing-core-server
-
-  # Java 21 virtual threads (Project Loom) — Tomcat + @Async both use them.
-  # Near-unlimited concurrency for I/O-bound engine-adapter and DB calls.
-  threads:
-    virtual:
-      enabled: true
-
+    name: taxfiling-core
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taxfiling
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
   jpa:
     hibernate:
-      ddl-auto: validate         # Schema is owned by Flyway — Hibernate never changes it.
+      ddl-auto: validate
+    show-sql: false
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        use_sql_comments: true
-
-  datasource:
-    # stringtype=unspecified: lets the PG driver send JSON strings without a type
-    # tag so PostgreSQL casts based on the target column type (jsonb).
-    # Without this, JsonbConverter output is sent as varchar and PG refuses to cast.
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:tax_filing_db}?stringtype=unspecified
-    username: ${DB_USER:root}
-    password: ${DB_PASS:root@1234}
-    hikari:
-      maximum-pool-size: 10
-      minimum-idle: 2
-      pool-name: TaxFilingHikariPool
-
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+  
   flyway:
-    locations: classpath:db/migration
+    enabled: true
     baseline-on-migrate: true
+    locations: classpath:db/migration
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: taxfiling-core
+      properties:
+        spring.json.trusted.packages: "*"
 
 server:
-  port: ${SERVER_PORT:8081}
+  port: 8080
   servlet:
-    # Context path provides /api/v1 prefix.
-    # Controllers do NOT repeat this prefix — avoids the double-prefix bug.
     context-path: /api/v1
-  error:
-    include-message: always
-    include-binding-errors: always
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics,prometheus
-  endpoint:
-    health:
-      show-details: always
-  metrics:
-    tags:
-      application: tax-filing-core-server
-    distribution:
-      percentiles-histogram:
-        http.server.requests: true
-  tracing:
-    sampling:
-      probability: 1.0
 
 logging:
   level:
     root: INFO
     com.itas.taxfiling: DEBUG
-    org.springframework.web: INFO
-    org.springframework.data: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %X{traceId} %X{correlationId} %X{actorId} - %msg%n"
-    file:    "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %X{traceId} %X{correlationId} %X{actorId} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
-# ── Resilience4j ──────────────────────────────────────────────────────────────
-# All engine adapters share the same sliding-window / threshold / open-duration
-# settings. Override per-instance only when you have a different SLA requirement.
-resilience4j:
-  circuitbreaker:
-    configs:
-      default:
-        slidingWindowSize: 100
-        failureRateThreshold: 50
-        waitDurationInOpenState: 30000
-        permittedNumberOfCallsInHalfOpenState: 10
-    instances:
-      ledger-engine:
-        baseConfig: default
-      rule-engine:
-        baseConfig: default
-      risk-engine:
-        baseConfig: default
-      e-invoice-engine:
-        baseConfig: default
-      tax-type-engine:
-        baseConfig: default
-      registration-service:
-        baseConfig: default
-      dms:
-        baseConfig: default
-      case-management:
-        baseConfig: default
-      notification-engine:
-        baseConfig: default
-      workflow-engine:
-        baseConfig: default
-      ministry-integration:
-        baseConfig: default
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
 
-  retry:
-    configs:
-      default:
-        maxAttempts: 3
-        waitDuration: 1000
-        retryExceptions:
-          - java.net.ConnectException
-          - java.io.IOException
-    instances:
-      ledger-engine:
-        baseConfig: default
-      rule-engine:
-        baseConfig: default
-      risk-engine:
-        baseConfig: default
-      e-invoice-engine:
-        baseConfig: default
-      tax-type-engine:
-        baseConfig: default
-      registration-service:
-        baseConfig: default
-      dms:
-        baseConfig: default
-      case-management:
-        baseConfig: default
-      notification-engine:
-        baseConfig: default
-      workflow-engine:
-        baseConfig: default
-      ministry-integration:
-        baseConfig: default
-
-# ── Springdoc OpenAPI ─────────────────────────────────────────────────────────
+# OpenAPI/Swagger Configuration
 springdoc:
   api-docs:
-    path: /openapi
+    path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
-    use-root-path: true
+    operationsSorter: method
+    tagsSorter: alpha
 
-# ── Outbox Dispatcher ─────────────────────────────────────────────────────────
-itas:
+# Application-specific configuration
+taxfiling:
   outbox:
-    poll-interval-ms: 5000       # How often OutboxDispatcher.drain() runs
-    batch-size: 50               # Rows claimed per poll tick
-  scheduler:
-    filing-period-status-cron: "0 0 1 * * *"     # Daily 01:00 — FUTURE→OPEN→DUE→OVERDUE
-    open-filing-period-cron:   "0 5 0 1 * * *"   # Monthly 00:05 on 1st — opens next period
-  tax-type-cache:
-    refresh-interval-ms: 3600000  # Hourly refresh of near-expiring rule-package-cache rows
-
-# ── External Integration Base URLs ───────────────────────────────────────────
-integrations:
-  ledger:
-    base-url: ${LEDGER_BASE_URL:http://172.16.0.92:32703}
-    connect-timeout-ms: 5000
-    read-timeout-ms: 15000
+    dispatcher:
+      enabled: true
+      fixed-delay: 5000  # 5 seconds
+      batch-size: 100
+  
+  engine-adapters:
+    mode: mock  # mock or real
+    
+  idempotency:
+    ttl-hours: 24

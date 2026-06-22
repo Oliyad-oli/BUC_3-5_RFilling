@@ -278,20 +278,34 @@ function NewReturnWizard() {
     }, 1200);
   };
 
-  const submitReturn = () => {
+  const submitReturn = async () => {
     if (!selectedPeriod) return;
     setSubmitting(true);
-    window.setTimeout(() => {
+    try {
+      // Backend uses /tax-returns/{id}/iterations/{iterationId}/accept to submit
+      // Accept calculation triggers submission
+      const latestIteration = useApp.getState().returns.find((r) => r.id === returnId)?.calculationIterations?.slice(-1)[0];
+      if (!latestIteration) throw new Error('No calculation iteration found');
+      
+      const res = await fetch(`http://localhost:8081/tax-returns/${returnId}/iterations/${latestIteration.iterationNo}/accept`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      if (!res.ok) throw new Error('API Error');
+      const data = await res.json();
       const response = {
         filingDeadline: selectedPeriod.dueDate,
         paymentDueDate: addDays(selectedPeriod.dueDate, 5),
       };
       setSubmitResponse(response);
       updateReturn(returnId, response);
-      appendEvent(returnId, { time: timeNow(), label: "Submit accepted and calendar dates resolved", actor: "SYSTEM" });
+      appendEvent(returnId, { time: timeNow(), label: data.message || "Calculation accepted & submitted", actor: "SYSTEM" });
       setSubmitting(false);
-      toast.success("Submit accepted. Status remains ACCEPTED until ledger post.");
-    }, 700);
+      toast.success("Calculation accepted. Backend will post to ledger automatically.");
+    } catch (e) {
+      toast.error("Failed to connect to backend API");
+      setSubmitting(false);
+    }
   };
 
   const postToLedger = (fail = false) => {

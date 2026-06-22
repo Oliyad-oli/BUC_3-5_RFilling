@@ -1,148 +1,223 @@
-# Tax Filing Core Server
+# Tax Filing Core - Backend
 
-**ITAS Platform — BUC-003 Return Filing & BUC-005 Return Processing**
+Clean implementation of BUC-003 (Return Filing) and BUC-005 (Return Processing) following Hexagonal Architecture.
 
----
+## Features
 
-## Overview
+### BUC-003: Return Filing
+- Register Daily Return (manual entry + e-invoice integration)
+- Register Manual Receipt
+- Submit Monthly Return
+- Calculation engine integration
+- Ledger posting (event-driven)
 
-`tax-filing-core-server` is the authoritative service for tax return filing and processing within the ITAS platform. It implements a strict hexagonal architecture (ports & adapters) with Domain-Driven Design.
-
-| BUC | Name | Description |
-|---|---|---|
-| BUC-003 | Return Filing | Draft, calculate, submit, and amend tax returns |
-| BUC-005 | Return Processing | Post-ledger validation, officer review, fraud detection, certificate issuance |
-
----
+### BUC-005: Return Processing
+- Officer review queue
+- Risk assessment integration
+- Rule validation integration
+- Decision workflow (CLEAR / REQUEST_AMENDMENT / CONFIRM_FRAUD)
 
 ## Architecture
 
+**Pattern**: Hexagonal Architecture (Ports & Adapters)  
+**Design**: Domain-Driven Design (DDD)  
+**Approach**: CQRS + Event Sourcing + Outbox Pattern
+
+### Package Structure
+
 ```
-com.itas.taxfiling/
-├── api/             ← REST controllers, DTOs, RFC-7807 error handling
-├── application/     ← Use cases, ports (interfaces), event handlers, outbox, scheduling
-├── domain/          ← Aggregates, value objects, domain events (NO Spring/JPA annotations)
-├── persistence/     ← JPA entities, Spring Data repos, persistence adapters
-├── engineadapter/   ← External system adapters (ledger, risk, rule, e-invoice, tax-type…)
-└── observability/   ← AuditInterceptor (AOP), MdcContextFilter
+com.itas.taxfiling
+├── api/                      # REST API Layer
+│   ├── controller/           # REST controllers
+│   ├── dto/                  # Request/Response DTOs
+│   ├── advice/               # Exception handlers
+│   └── webhook/              # Webhook endpoints
+├── application/              # Application Layer
+│   ├── usecase/              # Use cases (commands/queries)
+│   ├── port/                 # Port interfaces
+│   ├── event/                # Event handlers
+│   └── outbox/               # Outbox dispatcher
+├── domain/                   # Domain Layer
+│   ├── model/                # Aggregates and entities
+│   ├── valueobject/          # Value objects
+│   ├── event/                # Domain events
+│   └── exception/            # Domain exceptions
+├── persistence/              # Persistence Layer
+│   ├── jpa/                  # JPA entities and repositories
+│   └── adapter/              # Repository adapters
+├── engineadapter/            # External integrations (mock)
+├── observability/            # Cross-cutting concerns
+└── config/                   # Spring configuration
 ```
 
-**Security**: Intentionally absent. Authentication and authorization are owned entirely by the API Gateway + Keycloak. The service receives identity via the `X-Actor-Id` header.
+## Prerequisites
 
----
+- Java 17+
+- Maven 3.8+
+- PostgreSQL 14+ (or use H2 for dev)
+- Kafka (optional, for event publishing)
 
-## Stack
+## Setup
 
-| Technology | Version |
-|---|---|
-| Java | 21 (virtual threads enabled) |
-| Spring Boot | 3.3.0 |
-| PostgreSQL | 16 |
-| Flyway | managed |
-| Hibernate | 6 (`ddl-auto: validate`) |
-| Resilience4j | 2.1.0 |
-| Springdoc OpenAPI | 2.0.4 |
-| Lombok | 1.18.46 |
-| MapStruct | 1.5.5.Final |
-| ArchUnit | 1.3.0 |
-| Testcontainers | 1.19.2 |
+### 1. Database Setup
 
----
+**PostgreSQL**:
+```bash
+createdb taxfiling
+psql taxfiling < schema.sql
+```
 
-## Quick Start
+**Or use H2** (in-memory):
+```bash
+# No setup needed, runs with dev profile
+```
+
+### 2. Build
 
 ```bash
-# Prerequisites: Java 21, Maven 3.9+, PostgreSQL 16 running
-
-# 1. Create the database
-psql -U postgres -c "CREATE DATABASE tax_filing_db;"
-
-# 2. Run the application (Flyway applies migrations automatically)
-mvn spring-boot:run
-
-# 3. Open Swagger UI
-open http://localhost:8081/api/v1/swagger-ui.html
-
-# 4. Run all tests
-mvn test
-
-# 5. Run integration tests (requires Docker)
-mvn verify
+mvn clean install
 ```
 
----
+### 3. Run
 
-## Environment Variables
+**Development mode** (H2 database):
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
+```
 
-| Variable | Default | Description |
-|---|---|---|
-| `SERVER_PORT` | `8081` | HTTP port |
-| `DB_HOST` | `localhost` | PostgreSQL host |
-| `DB_PORT` | `5432` | PostgreSQL port |
-| `DB_NAME` | `tax_filing_db` | Database name |
-| `DB_USER` | `root` | Database username |
-| `DB_PASS` | `root@1234` | Database password |
-| `LEDGER_BASE_URL` | `http://172.16.0.92:32703` | Ledger engine base URL |
+**Production mode** (PostgreSQL):
+```bash
+mvn spring-boot:run
+```
 
----
+## API Documentation
+
+Once running, access Swagger UI at:
+```
+http://localhost:8080/api/v1/swagger-ui.html
+```
 
 ## API Endpoints
 
-All endpoints are under `http://host:8081/api/v1/`. See Swagger UI for full documentation.
-
-| Path | Description | BUC |
-|---|---|---|
-| `POST /tax-returns` | Draft a new TaxReturn | BUC-003 |
-| `POST /filing-periods/{id}/start` | Start filing from obligation card | BUC-003 |
-| `POST /tax-returns/{id}/schedules` | Add a schedule | BUC-003 |
-| `POST /tax-returns/{id}/schedules/{sid}/line-items` | Add a line item | BUC-003 |
-| `POST /tax-returns/{id}/calculate` | Run calculation loop | BUC-003 |
-| `POST /tax-returns/{id}/iterations/{itid}/accept` | Accept calculation (submit) | BUC-003 |
-| `POST /tax-returns/{id}/amendments` | Open an amendment | BUC-003 |
-| `GET /tax-returns/{id}/details` | Full return details | BUC-003/005 |
-| `GET /officer-review-items` | Officer review queue | BUC-005 |
-| `POST /officer-review-items/{id}/decision` | Officer decision | BUC-005 |
-| `GET /filing-certificates/by-tax-return/{id}` | Retrieve filing certificate | BUC-005 |
-| `GET /portal/filing/dashboard` | Taxpayer dashboard | BUC-003 |
-
----
-
-## Domain Model
-
+### Tax Returns (BUC-003)
 ```
-TaxReturn (aggregate root)
-├── Schedule[] (entity)
-│   └── LineItem[] (entity)
-├── CalculationIteration[] (entity)
-├── Amendment (open, optional)
-└── Amendment[] (historical)
-
-FilingPeriod (aggregate root)
-TaxpayerObligation (aggregate root)
-LineItemEntryType (aggregate root)
-OfficerReviewItem (aggregate root)
-FilingCertificate (aggregate root)
-OutboxEntry (aggregate root)
+POST   /api/v1/tax-returns/draft
+PUT    /api/v1/tax-returns/{id}/draft
+GET    /api/v1/tax-returns/{id}
+GET    /api/v1/tax-returns?tin={tin}
+POST   /api/v1/tax-returns/{id}/calculate
+POST   /api/v1/tax-returns/{id}/submit
+DELETE /api/v1/tax-returns/{id}
 ```
 
----
+### Officer Review (BUC-005)
+```
+GET    /api/v1/cases?status=OPEN&assignedOfficer={id}
+GET    /api/v1/cases/{id}
+POST   /api/v1/cases/{id}/decision
+GET    /api/v1/decisions?officer={id}
+GET    /api/v1/officer/dashboard
+```
+
+### Filing Periods
+```
+GET    /api/v1/filing-periods?tin={tin}&status=OPEN,OVERDUE
+```
+
+### Authentication
+```
+POST   /api/v1/auth/login/taxpayer
+POST   /api/v1/auth/login/officer
+POST   /api/v1/auth/logout
+POST   /api/v1/auth/refresh
+```
 
 ## Testing
 
 ```bash
-# Unit tests (no Spring context, no DB)
+# Run all tests
 mvn test
 
-# Integration tests (Testcontainers PostgreSQL)
-mvn verify
+# Run integration tests only
+mvn verify -P integration-test
 
-# ArchUnit architecture enforcement
-mvn test -Dtest=ArchitectureTest
-
-# Single use case test
-mvn test -Dtest=AcceptCalculationUseCaseTest
+# Run with coverage
+mvn clean test jacoco:report
 ```
 
----
+## Configuration
 
-*Derived from `bs-filing-core-server` — optimized exclusively for BUC-003 & BUC-005.*
+Edit `src/main/resources/application.yml` for:
+- Database connection
+- Kafka settings
+- Outbox dispatcher settings
+- Engine adapter mode (mock/real)
+
+## Domain Model
+
+### Aggregates
+- **TaxReturn** - Core return filing aggregate
+- **OfficerReviewItem** - Review queue item
+- **FilingPeriod** - Filing period
+- **OutboxEntry** - Event outbox entry
+
+### Key Events
+- TaxReturnDraftedEvent
+- CalculationRequestedEvent
+- CalculationAcceptedEvent
+- PostedToLedgerEvent
+- OfficerReviewItemCreatedEvent
+- OfficerReviewDecidedEvent
+
+## External Integrations (Mock Adapters)
+
+All external integrations use mock implementations initially:
+- **E-Invoice Service** - Pre-populate return data
+- **Ledger Engine** - Post tax liability
+- **Risk Engine** - Risk assessment
+- **Rule Engine** - Validation and calculation
+- **Workflow Engine** - Review routing
+- **Notification Engine** - User notifications
+
+To switch to real adapters, update `application.yml`:
+```yaml
+taxfiling:
+  engine-adapters:
+    mode: real
+```
+
+## Development
+
+### Adding a New Use Case
+
+1. Create domain event in `domain/event/`
+2. Create use case in `application/usecase/`
+3. Create DTO in `api/dto/`
+4. Add controller endpoint in `api/controller/`
+5. Add tests
+
+### Database Migrations
+
+Create new migration in `src/main/resources/db/migration/`:
+```
+V{version}__{description}.sql
+```
+
+Example: `V1__create_tax_return_tables.sql`
+
+## Troubleshooting
+
+### Database connection failed
+- Check PostgreSQL is running: `pg_isready`
+- Check credentials in `application.yml`
+
+### Kafka connection failed
+- Kafka is optional for development
+- Set `spring.kafka.enabled=false` to disable
+
+### Port already in use
+- Change port in `application.yml`: `server.port`
+
+## License
+
+Internal use only - ITAS Tax Filing System

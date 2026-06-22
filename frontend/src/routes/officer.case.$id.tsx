@@ -41,6 +41,27 @@ function CaseDetail() {
     await wait(500);
     push("Decision recorded");
 
+    try {
+      const res = await fetch(`http://localhost:8081/officer-review-items/${c.id}/decision`, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-Actor-Id': 'officer-abebe-001'
+        },
+        body: JSON.stringify({
+          decision,
+          officerActorId: 'officer-abebe-001',
+          narrative: notes,
+          externalCaseId: decision === "CONFIRM_FRAUD" ? externalCaseId.trim() : undefined
+        })
+      });
+      if (!res.ok) throw new Error('API Error');
+      const data = await res.json();
+      push("Server confirmed: " + (data.message || "Decision accepted"));
+    } catch (e) {
+      push("Warning: Could not connect to backend server, proceeding locally");
+    }
+
     submitOfficerDecision(
       c.id,
       decision,
@@ -53,13 +74,6 @@ function CaseDetail() {
       push("All review items resolved; parent return → COMPLETED");
       await wait(400);
       push("Publishing completion event");
-      await wait(300);
-      push("Done");
-      setDone({ decision, caseId: c.id, returnId: c.returnId });
-    } else if (decision === "REQUEST_AMENDMENT") {
-      push("All review items resolved with amendment request; parent return → AMENDMENT_DRAFT");
-      await wait(400);
-      push("Notifying taxpayer");
       await wait(300);
       push("Done");
       setDone({ decision, caseId: c.id, returnId: c.returnId });
@@ -164,7 +178,6 @@ function CaseDetail() {
             <div className="space-y-2 mb-4">
               {([
                 ["CLEAR", CheckCircle2, "text-success", "Mark reviewed; no issue found. Return → COMPLETED"],
-                ["REQUEST_AMENDMENT", FileEdit, "text-warning", "Taxpayer must correct and refile. Return → AMENDMENT_DRAFT"],
                 ["CONFIRM_FRAUD", ShieldAlert, "text-destructive", "Confirm fraud. Return → FRAUD_CONFIRMED (terminal)"],
               ] as const).map(([key, Icon, color, sub]) => (
                 <label key={key} className={`flex items-start gap-3 p-3 border rounded-md cursor-pointer transition-colors ${decision === key ? "border-accent bg-accent/5" : "border-border hover:bg-muted/30"
@@ -261,19 +274,6 @@ function DoneScreen({ done, caseId, returnId, navigate }: { done: { decision: Of
           Decision By: Officer Abebe Girma
         </div>
         <button onClick={() => navigate({ to: "/officer/queue" })} className="mt-6 btn-primary mx-auto">← Back to Queue</button>
-      </div>
-    );
-  }
-  if (done.decision === "REQUEST_AMENDMENT") {
-    return (
-      <div className="max-w-2xl mx-auto bg-card border border-warning/40 rounded-lg p-8 fade-in">
-        <h2 className="text-xl font-semibold flex items-center gap-2"><FileEdit className="h-5 w-5 text-warning" /> Amendment Requested</h2>
-        <p className="mt-2 text-sm text-muted-foreground">Tax return <span className="mono">{returnId}</span> is now AMENDMENT_DRAFT. The taxpayer can start an amendment from the return detail page.</p>
-        <div className="mt-5 bg-muted/40 border border-border rounded-md p-4 text-sm">
-          <div className="font-medium mb-1">Notification sent</div>
-          <div className="text-muted-foreground text-xs">"Your return requires amendment. Please correct and resubmit. Reference: {caseId}"</div>
-        </div>
-        <button onClick={() => navigate({ to: "/officer/queue" })} className="mt-6 btn-primary">← Back to Queue</button>
       </div>
     );
   }
