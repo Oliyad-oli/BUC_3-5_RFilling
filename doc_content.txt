@@ -1,0 +1,2073 @@
+Module B- Business Use Cases
+No
+Use Case Name
+Description
+1
+Configure Filing Reminders
+The system allows administrators to configure reminder schedules, templates, channels (email, SMS, portal, print), and escalation rules for tax filing reminders. These settings ensure taxpayers are notified of obligations in a timely and compliant manner.
+2
+Manage and Send Filing Reminders
+The system automatically generates and sends filing reminders to taxpayers based on configured rules, filing periods, and due dates. It ensures compliance by escalating reminder severity until the return is filed or an estimated assessment is issued.
+3
+Register Daily Return via E-Filing Portal
+The system allows taxpayers to submit daily returns using e-invoice integration or manual entry. Submitted data updates the taxpayer ledger with appropriate debit/credit transactions.
+4
+Register Manual Receipt
+The system allows taxpayers or back-office staff to manually register receipts for daily returns when e-integration is not available.
+5
+Submit Monthly Return
+The system allows taxpayers to file monthly tax returns based on cumulative daily invoices and receipts, ensuring ledger updates and compliance with reporting obligations.
+6
+Manage Return Processing (Back-Office)
+The system allows tax officers to process and verify submitted returns, reconcile data, and request clarifications, ensuring compliance and finalizing taxpayer ledger entries.
+7
+Submit Manual Return Filing
+This use case outlines the process by which a taxpayer, tax agent, or tax officer submits a tax return manually. This typically applies in scenarios where electronic filing is not possible, such as in remote areas, during system downtime, or when exemptions are granted to certain taxpayer categories. The system must support data capture, validation, review, and storage of the manually filed return.
+8
+Manage Other Fees Associated with Filing
+Handle administrative or late fees that may apply during or after manual return filing. These fees are calculated and processed based on configured rules such as missed deadlines or manual processing costs.
+9
+Establish Daily Income Estimate Case
+Start the income estimation process for small businesses (typically in the informal sector) by creating a case that enables the tax authority to determine a fair daily income based on available data, surveys, or business profiling. This process supports simplified or presumptive tax regimes.
+10
+Capture Details of Estimation
+Record daily or monthly income details for presumptive taxpayers as part of the income estimation process. These details form the basis for calculating estimated tax liability under simplified regimes.
+11
+Manage Estimated Daily Income Assessment
+Finalize and approve estimated income assessment cases for presumptive taxpayers. This includes reviewing captured data, confirming estimated income, assigning assessment outcomes, and updating the taxpayer's record accordingly.
+12
+Configure Change Reasons
+Define and manage a list of standardized reasons for changes made to tax values during return filing, assessment, or estimation. These predefined reasons support transparency, auditability, and consistent reporting across the tax administration system.
+13
+Capture Presumptive Tax Determination
+Gather, validate, and store presumptive tax amounts for eligible taxpayers. This involves collecting data inputs, applying relevant presumptive tax rules, and confirming calculated tax amounts for simplified tax regimes.
+14
+Interfacing with E-Invoice and Populate / Back Office
+15
+Submit Return Processing
+Submit tax returns and initiate backend validations, calculations, and workflows, including risk scoring, cross-matching, and acknowledgment generation.
+16
+Configure Cross-Match.
+17
+Create a Tax Fraud Investigation Case.
+Flag a taxpayer or specific return for suspected fraud and initiate a formal investigation workflow. This includes capturing evidence, assigning officers, and tracking the progress of the case.
+18
+Register Manual Receipt.
+Record and store sales receipts issued manually by taxpayers who are not using electronic invoicing systems. This data supports return validation, audit, and risk analysis, especially for small or exempted businesses.
+19
+Request Due Date Extensions
+This use case allows a taxpayer or their agent to requests to extend tax submission/payment deadlines. The request include a waiver of applicable penalties and interest.
+20
+Manage Extension Requests / Types of Extension
+This use case manages filing due date extensions for taxpayers, including individual requests and government-declared extensions. It involves processing, categorizing, of extensions and approving these requests by MoR Tax Officer.
+21
+Request VAT and Refund for Privileged
+This use case enables privileged taxpayers, such as NGOs, embassies, and diplomatic missions, to submit VAT refund claim through the system.
+22
+Manage Refund Process
+Validate and disburse refund to privileged entities and adopts the 'Green/Red Channel' approach to ensure legitimate refunds are paid.
+23
+Request Electronic Return Amendments
+The system allows a Taxpayer/Tax Agent to request an amendment to a previously submitted electronic return, subject to statutory time limits, audit locks, and risk controls. The system shall apply a Two-Window model (Revision before due date; Amendment after due date/assessment) to protect data integrity while minimizing taxpayer burden (aligned with OECD/IMF/World Bank good practice).
+24
+Manage Electronic Return Amendments / Back Office
+The system allows authorized back-office staff to review, verify, and approve/reject electronic return amendments using risk-based routing, data matching, and controlled reassessment, consistent with OECD/IMF/World Bank best practice for integrity and service.
+25
+Request Manual Return Amendments
+The system supports taxpayer requests to amend returns originally filed manually (paper/assisted filing). The process digitizes amendments with consistent statutory controls, evidence requirements, and auditability, aligned with international good practice.
+26
+Manage Manual Return Amendments
+The system allows back-office staff to validate, process, and finalize manual return amendments, ensuring consistency with electronic amendment governance, controlled approvals, and ledger integrity.
+27
+Manage Manual Return Amendments
+The system allows back-office staff to validate, process, and finalize manual return amendments, ensuring consistency with electronic amendment governance, controlled approvals, and ledger integrity.
+28
+Manage Refund Request / Backoffice
+The system allows back-office staff to verify, risk-assess, offset liabilities, and approve/reject refund requests. The workflow supports green/amber/red lanes, authority limits, and clear taxpayer notifications.
+29
+Assess Risk Level and Determine Risk Level
+The system automatically evaluates refund request risk using configurable models and rules, producing a risk score and lane decision (green/amber/red) to support risk-based verification and efficient resource allocation, consistent with OECD Compliance Risk Management and modern tax administration practice.
+30
+Issue Payment Order
+The system generates and transmits payment orders for approved refunds after completing validation and liability offsetting. The process enforces maker-checker controls, secure transmission, and reconciliation feedback to ensure financial integrity.
+31
+Configure Non-Filer Compliance Rules
+Enables administrators to define the parameters, timing, and automated actions (such as notices and estimated assessments) that the system must execute when a taxpayer fails to meet filing deadlines.
+32
+Monitor and Identify Filing Non-Compliance
+The system monitors the filing window to identify taxpayers who have not fulfilled their obligations. It accounts for extensions and categorizes non-compliance into specific reporting groups for administrative action.
+33
+Cross-Check Non-Filer Transactional Data
+The system analyzes internal and third-party data to determine if a non-filer has active business transactions during the unfiled period, helping to prioritize high-risk non-compliance for enforcement action.
+34
+Issue Automated Notifications and Estimated Assessments
+Automates the issuance of non-compliance warnings and the subsequent generation of estimated tax liabilities to ensure revenue collection when returns are not filed.
+35
+Reconcile Estimated Assessment with Self-Assessment
+Manages the technical and administrative process of replacing a system-generated estimated assessment with a taxpayer's late-filed self-assessment return.
+36
+Interface with Ministries and Agencies
+This use case describes the automated, system-to-system process of exchanging data and information between a tax authority's administration system and the systems of other government ministries and agencies. The primary objective is to enable cross-agency data verification, enhance compliance, streamline administrative processes, and helps to collect municipality fees and non- tax revenues.
+37
+Register Incoming Bill Information
+This use case describes the process of accurately capturing and recording all relevant details from an incoming bill or invoice received from Ministries and agencies. The primary objective is to create a digital record in the new system that serves as the basis for subsequent financial processes, such as approval, payment, and financial reporting.
+38
+Generate Immediate Assessment Notice for Taxpayer
+This use case describes the automated, system-driven process of generating an immediate assessment notice for a taxpayer. This is typically triggered by a specific event, which allows the tax authority to issue a real-time, non-periodic tax liability notice without a formal tax return filing. The notice informs the taxpayer of their obligation and provides details for payment.
+39
+Send Receipt for Taxpayer
+This use case describes the automated process of generating and sending a formal receipt to a taxpayer upon the successful and validated payment of a municipality fees and non-tax liability. This process ensures that the taxpayer receives official proof of payment, which is used for their records, compliance verification, and dispute resolution.
+40
+Announce Bill Amount Using MoR System
+This use case describes the automated process of an integrated tax administration system communicating a taxpayer's or customer's bill amount or financial obligation. This is typically an outbound communication triggered by a specific event, or the issuance of a bill for a service. The objective is to proactively inform the recipient of their liability, facilitating timely payment and improving administrative efficiency.
+41
+Capture Details of the Bill (Manually)
+This use case describes the manual process of a tax officer capturing and recording the details of a physical or non-digitized bill or invoice into the administration system. This is a crucial, though labor-intensive, process for integrating information from paper-based documents into a digital system, ensuring that all financial obligations, even those received offline, are accurately recorded and managed.
+E-Filing and Reminders
+This system offers a complete digital solution for managing tax compliance. At its core is an easy-to-use e-filing portal where taxpayers can register, submit, and monitor their return filings. To make the process smoother, it includes an intelligent communication engine that automatically sends reminders and official notices based on filing deadlines and compliance requirements. Administrators can manage all of this from the backend, where they can customize reminder schedules and design personalized letter templates. In addition, the system efficiently handles all related e-filing fees, providing a seamless, end-to-end platform for modern and transparent tax administration.
+Configure Filing Reminders
+Use Case ID
+BUC-EFR-001
+Use Case Name
+Configure Filing Reminders
+Use Case Description
+The system allows administrators to configure reminder schedules, templates, channels (email, SMS, portal, print), and escalation rules for tax filing reminders. These settings ensure taxpayers are notified of obligations in a timely and compliant manner.
+Actors
+System Administrator, Tax Authority Staff
+Pre-conditions
+User has administrator access rights.Reminder templates and communication channels are available in the system.
+Triggers
+The tax authority decides to set up or modify filing reminder configurations.
+Flow of Events
+The system administrator logs into the system.
+The system administrator navigates to the Reminder Configuration module.
+The system administrator sets frequency and schedule of reminders (e.g., days before/after due date).
+The system administrator selects applicable channels (email, SMS, portal, print).
+The system administrator designs and configures templates for reminders, letters, and notices.
+The system administrator defines severity levels and escalation rules.
+The system administrator saves and activates the configuration.
+Alternate Flow
+AF-01 Invalid Template: If templates are incomplete/invalid, system notifies administrator and blocks activation.AF-02 Channel Unavailable: If a channel (e.g., SMS gateway) is offline, system logs the error and notifies administrator.
+Post Conditions
+Success: Filing reminder configuration saved and active.Failure: Configuration not applied; administrator notified.
+Exceptions
+EX-01 System Down: System unavailable → administrator cannot configure reminders.EX-02 Database Error: Configuration not saved → system logs and escalates to IT support.
+Information Requirements
+Assumptions
+Communication infrastructure (SMS, email, portal) is integrated and available.
+Reminder templates are predefined and customizable.
+Notes and Issues
+This use case ensures timely and legally compliant communication with taxpayers regarding filing obligations.
+Business Rules
+Reminder frequencies must comply with tax legislation.
+At least one active channel must be selected for configuration to be valid.
+Configurations require administrator approval before activation.
+Attachments
+Sample reminder configuration template; Example SMS/email content.
+Activity Diagram
+Manage and Send Filing Remainders
+Use Case ID
+BUC-EFR-002
+Use Case Name
+Manage and Send Filing Reminders
+Use Case Description
+The system automatically generates and sends filing reminders to taxpayers based on configured rules, filing periods, and due dates. It ensures compliance by escalating reminder severity until the return is filed or an estimated assessment is issued.
+Actors
+Primary Actor(s): System
+Secondary Actor(s): Taxpayer, Tax Authority
+Pre-conditions
+Reminder configurations are set up.Taxpayer is registered with valid contact information.Filing period and tax type information are available.
+Triggers
+Filing period begins or due date approaches based on configured rules.
+Flow of Events
+System checks taxpayer’s filing periods, due dates, exemptions, and extensions.
+System prioritizes reminders based on taxpayer risk score and compliance history
+System generates reminder content using configured template.
+System prioritizes reminders based on taxpayer risk score and compliance history
+System delivers reminder via selected channels (email, SMS, portal, print). If return not submitted, continues sending reminders as per frequency rules.
+System Personalized content based on taxpayer segment (e.g., first-time filer vs. frequent late filer
+System tracks response rates to different reminder types and channels
+System escalates severity of reminders until return is filed or assessment issued.
+System Feedback loop to adjust reminder strategy based on response patterns
+System notify the tax payer
+Alternate Flow
+AF-01 Valid Exemption: If taxpayer has valid exemption, system skips reminders.AF-02 Delivery Failure: If SMS/email undeliverable, system retries or switches channel.AF-03 Filing Extension: If granted, reminders rescheduled according to new dates.
+Post Conditions
+Success: Taxpayer receives reminders; logs stored for compliance.Failure: Reminders not sent; system logs failure.
+Exceptions
+EX-01 Communication Failure: If all channels unavailable, system logs error and alerts support.
+Information Requirements
+Assumptions
+Taxpayer’s contact details are valid and active.
+Communication gateways are operational.
+Notes and Issues
+This ensures proactive taxpayer compliance.
+Business Rules
+Reminder escalation rules must comply with legislation.
+All reminder communications must be logged.
+System must stop reminders once return filed or assessment issued.
+Attachments
+Sample reminder escalation matrix; Example email/SMS formats.
+Activity Diagram
+Register Daily Return via E-Filing Portal
+Use Case ID
+BUC-EFR-003
+Use Case Name
+Register Daily Return via E-Filing Portal
+Use Case Description
+The system allows taxpayers to submit daily returns using e-invoice integration or manual entry. Submitted data updates the taxpayer ledger with appropriate debit/credit transactions.
+Actors
+Primary Actor(s): Taxpayer
+Secondary Actor(s): System
+Pre-conditions
+Taxpayer is authenticated and authorized to file returns.
+Triggers
+Taxpayer decides to submit daily invoice return.
+Flow of Events
+Taxpayer logs in to the portal.
+Taxpayer selects 'Register Daily Return'.
+System pre-populates the return form with all validated e-invoice data for the selected period.
+System cross-validates invoice data in real-time with e-invoice system
+The taxpayer reviews, verifies, and can add any non-e-invoice transactions
+If manual, enters invoice data and uploads documents.
+Submits the return.
+System stores data and updates ledger with debit/credit.
+System applies carry-forward/back rules for credits and losses.
+System save and notify taxpayer.
+Alternate Flow
+AF-01 Invalid Data: System prompts taxpayer to correct errors.AF-02 Missing Attachments: If required documents missing, taxpayer notified.
+Post Conditions
+Success: Daily return recorded, receipt issued, ledger updated.Failure: Return not stored; taxpayer notified.
+Exceptions
+EX-01 System Error: Submission fails; taxpayer advised to retry later.
+Information Requirements
+Assumptions
+E-invoice integration is active and functional.
+Notes and Issues
+Supports daily compliance with tax obligations.
+Business Rules
+Ledger must reflect accurate debit/credit entries.
+Carry-forward and loss rules must comply with tax law.
+The return is based primarily on pre-validated e-invoice data. Manual adjustments require justification and are subject to higher inspection.
+Attachments
+Sample return form; Example confirmation receipt.
+Activity Diagram
+Register Manual Receipt
+Use Case ID
+BUC-EFR-004
+Use Case Name
+Register Manual Receipt
+Use Case Description
+The system allows taxpayers or back-office staff to manually register receipts for daily returns when e-integration is not available.
+Actors
+Primary Actor(s): Taxpayer, Back-Office Staff
+Secondary Actor(s): System
+Pre-conditions
+User is logged in with permissions to register receipts.
+Triggers
+Manual receipt entry is required due to missing integration.
+Flow of Events
+Taxpayer open 'Manual Receipt' form.
+The system display Manual Receipt Registration form
+Taxpayer select tax period and tax type.
+Taxpayer enter receipt details and upload documents.
+The taxpayer reviews, verifies, non-e-invoice transactions
+Taxpayer submit the receipt.
+System validates and stores data.
+System updated Ledger with debit/credit and carry/loss rules applied.
+Alternate Flow
+AF-01 Invalid Data: System prompts for correction.
+Post Conditions
+Success: Receipt registered and linked to return.Failure: Entry not saved; taxpayer notified.
+Exceptions
+EX-01 Database Error: Entry not saved; system logs error.
+Information Requirements
+Assumptions
+Manual receipts are only used when e-integration is unavailable.
+Notes and Issues
+Provides continuity when automation is not available.
+Business Rules
+Receipts must be validated before acceptance.
+Ledger entries must be consistent with receipt details.
+Attachments
+Manual receipt form sample.
+Activity Diagram
+Submit Monthly Return
+Use Case ID
+BUC-EFR-005
+Use Case Name
+Submit Monthly Return
+Use Case Description
+The system allows taxpayers to file monthly tax returns based on cumulative daily invoices and receipts, ensuring ledger updates and compliance with reporting obligations.
+Actors
+Primary Actor(s): Taxpayer
+Secondary Actor(s): System
+Pre-conditions
+Daily return data already submitted.Taxpayer is logged in.
+Triggers
+Monthly filing period begins.
+Flow of Events
+Taxpayer logs in and selects 'Submit Monthly Return'.
+Taxpayer chooses tax period and tax type.
+System pre-populates all data from daily returns with reconciliation summary.
+Taxpayer reviews or edits details.
+System highlights any discrepancies between the pre-populated e-invoice data and the taxpayer’s daily submitted return.
+If upload document exist, Taxpayer uploads supporting documents.
+Taxpayer submits return.
+System confirms submission and updates ledger.Carry-forward and loss rules applied.
+System save and ready for payment/refund
+Alternate Flow
+AF-01 Incomplete Data: System prompts taxpayer to complete missing fields.
+AF-02 The system will flag: at time of the system flag the process will go to BUC-EFR-006. 
+Post Conditions
+Success: Monthly return filed; ledger updated.Failure: Return not submitted.
+Exceptions
+EX-01 System Error: Submission fails; taxpayer notified.
+Information Requirements
+Assumptions
+All daily returns are already validated and stored.
+Notes and Issues
+Consolidates daily data into monthly compliance reports.
+Business Rules
+Monthly return must include all daily entries for the period.
+Attachments
+Sample monthly return form.
+Activity Diagram
+Manage Return Processing (Back-Office)
+Use Case ID
+BUC-EFR-006
+Use Case Name
+Manage Return Processing (Back-Office)
+Use Case Description
+The system allows tax officers to process and verify submitted returns, reconcile data, and request clarifications, ensuring compliance and finalizing taxpayer ledger entries. 
+Actors
+Primary Actor(s): Tax Officer, System (Risk Engine)
+Secondary Actor(s): System
+Pre-conditions
+Return submitted and visible to back-office system.
+Triggers
+Back-office review of submitted returns is required.
+Flow of Events
+Tax officer logs in and searches taxpayer by TIN.
+The system display Return processing
+Tax officer selects tax period and tax type.
+The flagging system automatically highlights high-risk discrepancies.
+Tax officer reviews pre-populated data.
+System highlights any discrepancies between the pre-populated e-invoice data and the taxpayer's final submitted return.
+System cross-checks against e-invoices and manual entries and flag based on risk engine.
+Tax officer reconciles details and requests documents if needed.
+Tax officer approves, revises, or rejects the return.
+System finalizes ledger entries and confirms application of rules.
+Alternate Flow
+AF-01 Incomplete Return: Officer requests additional documents.AF-02 Rejected Return: System notifies taxpayer for correction.
+Post Conditions
+Success: Return processed and ledger finalized.Failure: Return not processed; status remains pending.
+Exceptions
+EX-01 System Error: Return processing interrupted; officer retries later.
+Information Requirements
+Assumptions
+Submitted data is accurate and complete.
+Notes and Issues
+Ensures taxpayer returns are validated and compliant.
+Business Rules
+All reconciliations must follow tax authority procedures.
+Ledger must reflect officer’s final decision.
+Attachments
+Return processing workflow diagram.
+Activity Diagram
+Submit Manual Return Filing
+The Submit Manual Return Filing sub-module enables taxpayers and tax officers to capture, validate, and submit return filings that are prepared and lodged manually, outside of automated electronic channels. This functionality ensures that taxpayers who cannot use or access the e-filing system can still meet their compliance obligations by filing returns in paper form, which are then recorded in the system by authorized tax officers.
+Submit Manual Return Filing
+Use Case ID
+BUC-EFR-007
+Use Case Name
+Submit Manual Return Filing
+Use Case Description
+This use case outlines the process by which a taxpayer, tax agent, or tax officer submits a tax return manually. This typically applies in scenarios where electronic filing is not possible, such as in remote areas, during system downtime, or when exemptions are granted to certain taxpayer categories. The system must support data capture, validation, review, and storage of the manually filed return.
+Actors
+Taxpayer
+Tax Agent
+Tax Officer
+Pre-conditions
+The taxpayer or agent is authorized to file the return manually.
+The tax period is open for filing.
+Manual filing is allowed by regulation.
+Required forms/templates are available for manual submission.
+Triggers
+The use case is triggered when a taxpayer, tax agent, or tax officer initiates the submission of a tax return in manual format due to one or more of the following reasons:
+Flow of Events
+The taxpayer obtains a manual form.
+The taxpayer fills out the form manually.
+The tax officer logs into the system and enters the data from the manual form into the return filing interface.
+System performs basic validation on entered data (e.g., format checks, required fields, tax type-period match).
+Return is saved and marked as Filed Manual.
+Submission date and metadata are recorded.
+The system generates an acknowledgment/receipt with a reference number.
+Manual return and its source documents are stored (physically and/or digitally) with appropriate access controls and an audit trail.
+Alternate Flow
+AF-1: Missing/Invalid DataIf required data is missing or invalid, the system displays errors, and the officer must correct them before submission.
+AF-2: Duplicate SubmissionIf a return is already filed for the tax type and period, system prompts a warning or blocks the entry depending on configuration.
+Post Conditions
+Manual return is captured and saved in the system.
+A confirmation/receipt of submission is generated.
+Status of return is updated to “Filed – Manual”.
+Exceptions
+EF-1: Unauthorized Manual FilingIf the taxpayer is not allowed to file manually, the system denies the submission and flags it for review.
+EF-2: System Unavailable During EntryIf the system becomes unavailable during data entry, the officer must save progress and resume later.
+Information Requirements
+Assumptions
+Manual return filing is allowed only under specific conditions (e.g., system downtime, legal exemption).
+Notes and Issues
+Business Rules
+Manual returns can only be filed for tax types and periods allowed by the authority.
+Filing deadlines still apply.
+Returns must be reviewed or approved if required by internal policy.
+Return status should clearly indicate it is manually filed.
+Attachments
+Activity Diagram
+Manage Other Fees Associated with Filing
+Use Case ID
+BUC-EFR-008
+Use Case Name
+Manage Other Fees Associated with Filing
+Use Case Description
+Handle administrative or late fees that may apply during or after manual return filing. These fees are calculated and processed based on configured rules such as missed deadlines or manual processing costs.
+Actors
+Taxpayer 
+Tax Agent 
+Tax Officer 
+System
+Pre-conditions
+Manual return is filed. 
+Fee rules are configured. 
+Payment channels are integrated. 
+The taxpayer is eligible for manual filing. 
+Triggers
+A manual return is submitted.
+A return is submitted after the deadline.
+Officer selects "Apply Fee" action.
+Policy update activates new filing fee rules.
+Flow of Events
+The system detects a manual or late return.
+Checks for applicable fee conditions.
+System considers taxpayer compliance history and payment capacity in fee calculation.
+Displays the fee to the taxpayer or officer.
+The taxpayer makes a payment.
+System records fee payment and issues a receipt.
+Alternate Flow
+AF-1: Tax officer applies a waiver (based on authorization).
+AF-2: The Taxpayer appeals fee and it is flagged for review.
+Post Conditions
+Fees are assessed and linked to the return. 
+Taxpayer is notified. 
+Payment is made or marked due. 
+Fee transaction is logged and auditable.
+Exceptions
+EF-1: Payment system fails – taxpayer prompted to retry or use alternate method. 
+EF-2: Fee calculated incorrectly due to system misconfiguration – logged for admin correction.
+Information Requirements
+Assumptions
+Fee rules are regularly updated and version-controlled. 
+The taxpayer has access to valid payment options. 
+Fee notifications are sent via SMS, email, or print.
+Notes and Issues
+Business Rules
+Late filing fees apply based on number of overdue days. 
+Manual filing fees vary by taxpayer segment or return type. 
+Fees can be waived or overridden only by authorized personnel. 
+All fee logic must follow the configured fee matrix. 
+Attachments
+Activity Diagram
+Daily Income Estimate Determination by Committee/Tax Officer
+This sub-module provides a structured process for determining the estimated daily income of taxpayers, particularly those in businesses or professions where exact income records may not be readily available. The committee or assigned tax officer can establish new estimation cases, capture relevant details, and assess estimated income fairly. The process ensures transparency, compliance, and accountability by allowing configuration of valid change reasons whenever updates or adjustments are necessary.
+ Establish Daily Income Estimate Case
+Use Case ID
+BUC-EFR-009
+Use Case Name
+Establish Daily Income Estimate Case
+Use Case Description
+Start the income estimation process for small businesses (typically in the informal sector) by creating a case that enables the tax authority to determine a fair daily income based on available data, surveys, or business profiling. This process supports simplified or presumptive tax regimes.
+Actors
+Tax Officer 
+Taxpayer (indirectly) 
+System
+Pre-conditions
+The taxpayer is eligible for estimated income assessment (e.g., small or informal business). 
+Required data sources (e.g., surveys, location data, previous filings) are available. 
+The officer is authorized to initiate the case.
+Triggers
+Officer initiates an estimation case. 
+A system flag identifies a taxpayer eligible for estimation. 
+Periodic review of small businesses triggers estimation cycle.
+Flow of Events
+The officer selects the taxpayer or group of taxpayers eligible for income estimation.
+The system initiates a new daily income estimate case.
+Officer enters available data or references prior case data.
+The system proposes an estimate (optionally).
+Officer reviews and confirms the estimate to proceed.
+Case is submitted for further processing (approval, notification, or appeal).
+Alternate Flow
+AF-1: No sufficient data available – case is paused or redirected for field visit. 
+AF-2: Officer disagrees with system-generated estimate – manual override allowed.
+Post Conditions
+An estimation case is created in the system. 
+The taxpayer is notified. 
+Case progresses to review, approval, or adjustment stages.
+Exceptions
+EF-1: System error or data inconsistency – estimation cannot proceed and is logged for technical support. 
+EF-2: Taxpayer is found ineligible after case creation – case is canceled or reassigned.
+Information Requirements
+Assumptions
+Estimation tools and reference data (e.g., business type, location, size) are maintained in the system. 
+Tax officers have been trained in estimation methodology. 
+The taxpayer has limited or no formal accounting records.
+Notes and Issues
+Business Rules
+Only taxpayers under simplified/presumptive regimes can be assessed this way. 
+Income estimates should follow national or sector-specific benchmarks. 
+All estimate decisions must be logged and traceable.
+Attachments
+Activity Diagram
+Capture Details of Estimation
+Use Case ID
+BUC-EFR-010
+Use Case Name
+Capture Details of Estimation
+Use Case Description
+Record daily or monthly income details for presumptive taxpayers as part of the income estimation process. These details form the basis for calculating estimated tax liability under simplified regimes.
+Actors
+Tax Officer 
+System
+Pre-conditions
+An estimation case has been initiated. 
+The taxpayer is eligible for the presumptive tax scheme. 
+Estimation data (surveys, observations, benchmarks) is available or collectable.
+Triggers
+The officer proceeds to capture data after case initiation. 
+System prompts data capture during periodic review. 
+The data collected during the field visit is ready to be entered.
+Flow of Events
+The tax officer opens an active estimation case.
+Officer captures key income-related information (e.g., daily sales, business type, operating hours, location, and seasonality).
+System validates required fields and formats.
+The system may calculate a preliminary estimate based on entered data.
+Officer reviews and saves details.
+The estimation record is finalized or sent for approval.
+Alternate Flow
+AF-1: Data incomplete – system allows saving as draft for follow-up. 
+AF-2: Officer adjusts pre-filled data from a previous case.
+Post Conditions
+Estimation data is recorded and saved. 
+The income estimate is calculated or ready for review. 
+The estimation record is attached to the taxpayer’s file.
+Exceptions
+EF-1: Invalid data entry – system prompts correction. 
+EF-2: Taxpayer disputes the basis of estimation – flagged for higher-level review.
+Information Requirements
+Assumptions
+Tax officers use mobile or web-based estimation forms.
+Income patterns can be reasonably estimated based on observable inputs.
+Supporting documentation (photos, surveys, GPS data) may be attached.
+Notes and Issues
+Business Rules
+All required data fields must be completed for the estimation to be valid. 
+Certain business types may require specific data elements (e.g., number of customers per day for retail shops). 
+Historical or benchmark data should be referenced where available.
+Attachments
+Activity Diagram
+Manage Estimated Daily Income Assessment
+Use Case ID
+BUC-EFR-011
+Use Case Name
+Manage Estimated Daily Income Assessment
+Use Case Description
+Finalize and approve estimated income assessment cases for presumptive taxpayers. This includes reviewing captured data, confirming estimated income, assigning assessment outcomes, and updating the taxpayer's record accordingly.
+Actors
+Tax Officer 
+Approving Officer 
+System
+Pre-conditions
+Estimation case has been initiated and estimation details captured.
+Required data is validated and available for review. 
+The officer has proper authorization.
+Triggers
+Completion of estimation data entry. 
+Scheduled review of presumptive cases. 
+Officer initiates “Finalize Assessment” action in system.
+Flow of Events
+The officer opens the income estimation case in the system.
+Captured details are reviewed.
+The system may suggest a tax outcome based on the income estimate.
+Officer finalizes or adjusts the estimated amount.
+Senior officer (if applicable) reviews and approves the assessment.
+The system issues an assessment notice.
+Case status updated to “Completed”.
+Alternate Flow
+AF-1: If the estimation is disputed or questionable, officer escalates for review or field verification. 
+AF-2: Assessment deferred pending additional evidence or stakeholder input.
+Post Conditions
+Estimated daily/monthly income is approved. 
+Assessment is recorded against the taxpayer’s account. 
+The taxpayer is notified. 
+The case is closed or marked completed.
+Exceptions
+EF-1: System validation fails due to missing required information – prompts correction. 
+EF-2: Officer lacks proper authorization – system restricts submission.
+Information Requirements
+Assumptions
+Assessment thresholds, tax rates, and rules are pre-configured. 
+Officers follow standardized assessment guidelines. 
+Taxpayer has limited or no formal bookkeeping records.
+Notes and Issues
+Business Rules
+Final income estimate must be justified and supported by entered data.
+Approval workflows apply based on taxpayer segment or income level.
+All decisions must be auditable and time-stamped.
+Attachments
+Activity Diagram
+Configure Change Reasons
+Use Case ID
+BUC-EFR-012
+Use Case Name
+Configure Change Reasons
+Use Case Description
+Define and manage a list of standardized reasons for changes made to tax values during return filing, assessment, or estimation. These predefined reasons support transparency, auditability, and consistent reporting across the tax administration system.
+Actors
+System Administrator 
+Tax Policy Officer 
+System
+Pre-conditions
+The user has proper permissions to access the configuration module.
+The system allows change reason tagging during the filing or review processes.
+Triggers
+New tax rules or policy changes introduce new reasons. 
+Audit recommendations require clearer categorization of changes.
+Admin initiates update to reflect revised business practices.
+Flow of Events
+Admin accesses the configuration module.
+Selects “Change Reasons” management section.
+Adds a new reason or edits/deletes existing reasons.
+Sets attributes (reason code, name, description, applicable context: return/assessment/estimation).
+Saves changes.
+System validates and publishes reasons for use in workflows.
+Alternate Flow
+AF-1: Admin edits a reason that is already in use – system creates a versioned update to preserve audit trail. 
+ AF-2: Attempted deletion of an in-use reason – system blocks action or prompts for replacement mapping.
+Post Conditions
+Change reasons are created or updated in the system. 
+Reasons are available for selection by officers when modifying values.
+System logs configuration changes with user and timestamp.
+Exceptions
+EF-1: Invalid reason code format – system prevents saving. 
+EF-2: User lacks access rights – system denies action and logs event.
+Information Requirements
+Assumptions
+Reasons are reviewed and approved periodically by tax policy teams.
+Only authorized users can configure or update change reasons. 
+All modules requiring change justification are integrated with this configuration.
+Notes and Issues
+Business Rules
+Each change must be tagged with a valid, predefined reason. 
+Reasons must be unique and descriptive. 
+System must support versioning and effective dating for reason lists.
+Reason codes must be aligned with audit and reporting classifications.
+Attachments
+Activity Diagram
+Presumptive Tax Determination
+The Capture Presumptive Tax Determination sub-module provides functionality for assessing and recording presumptive taxes applicable to taxpayers who fall under simplified taxation regimes. It is designed for cases where taxpayers (usually small businesses or individuals) are not required to keep detailed accounts, and their tax liability is determined based on turnover, business type, or predefined presumptive criteria established by tax regulations.
+13. Capture Presumptive Tax Determination
+Use Case ID
+BUC-EFR-013
+Use Case Name
+Capture Presumptive Tax Determination
+Use Case Description
+Gather, validate, and store presumptive tax amounts for eligible taxpayers. This involves collecting data inputs, applying relevant presumptive tax rules, and confirming calculated tax amounts for simplified tax regimes.
+Actors
+Tax Officer 
+System
+Pre-conditions
+The taxpayer is eligible for presumptive taxation. 
+The necessary data (income estimate, business type, and location) is already available or has been captured. 
+Presumptive tax rules are configured in the system.
+Triggers
+The officer initiates presumptive tax determination during or after income estimation. 
+The system auto-prompts when the taxpayer falls within the presumptive criteria.
+New taxpayer registration or review identifies presumptive eligibility.
+Flow of Events
+The officer accesses the taxpayer’s record eligible for presumptive taxation.
+System retrieves relevant inputs (e.g., daily income, sector benchmarks).
+Officer enters or confirms presumptive tax determination details.
+The system validates data and applies business rules.
+The tax amount is auto-calculated or entered manually if override is allowed.
+ Final value is saved and confirmed.
+Alternate Flow
+AF-1: Officer adjusts suggested tax amount due to special conditions (with justification). 
+AF-2: Taxpayer’s eligibility is questioned – flagged for reclassification or audit.
+Post Conditions
+Presumptive tax liability is calculated and recorded. 
+Data is saved and linked to the taxpayer’s return. 
+System is ready for return generation or assessment issuance.
+Exceptions
+EF-1: Missing or inconsistent data – system prevents saving and prompts correction. 
+EF-2: Rule misconfiguration – system logs error and blocks calculation.
+Information Requirements
+Assumptions
+Presumptive tax rules are regularly updated by the tax authority.
+Officers are trained on presumptive regime logic. 
+The system is integrated with estimation and assessment modules.
+Notes and Issues
+Business Rules
+Taxpayer must meet eligibility criteria for presumptive regime. 
+Tax must be calculated using fixed rates, thresholds, or sector-based estimates. 
+Overrides must be justified and auditable. 
+Determinations are effective only within specified filing periods.
+Attachments
+Activity Diagram
+Return Processing
+This sub-module manages the end-to-end processing of tax returns. It includes interfacing with the E-Invoice system and back-office applications  submitting returns for processing, configuring cross-matching rules to detect discrepancies, and creating cases for potential tax fraud investigations. It ensures accurate, compliant, and efficient handling of all return-related activities.
+14. Interfacing with E-Invoice and Populate / Back Office
+Use Case ID
+BUC-EFR-014
+Use Case Name
+Interfacing with E-Invoice and Populate / Back Office
+Use Case Description
+This use case describes the integration of e-invoice data with the tax system’s back office to support return filing, taxpayer profiling, cross-matching, risk assessment, and audit selection. The system should automatically retrieve, validate, and store invoice data in the appropriate back office modules.
+Actors
+System 
+Tax Officer 
+ E-Invoice Platform
+Pre-conditions
+- E-invoicing platform is operational and integrated.- The taxpayer uses e-invoicing system.- Interfaces are configured and authorized for data access.- Relevant back office modules (e.g., taxpayer account, return, audit, risk) are enabled.
+Triggers
+Scheduled data sync (e.g., daily, hourly). 
+Filing event (e.g., return submission). 
+The officer manually requests invoice sync. 
+Risk or audit module requests updated invoice data.
+Flow of Events
+System schedules or triggers a data pull from the e-invoice platform.
+E-invoice data (e.g., sales, purchases, VAT) is retrieved via API or data warehouse.
+System validates data (format, duplication, taxpayer ID, transaction period).
+Valid data is stored in the back office repository.
+Data is associated with the taxpayer profile and return records.
+ Officer views or uses the data in back office processes (e.g., verification, assessment, and audit).
+Alternate Flow
+AF-1: Manual refresh by officer in case of data discrepancy or delay.
+AF-2: Partial data received – system retries or flags for review.
+Post Conditions
+E-invoice data is retrieved and stored in the back office system. 
+Data is linked to the appropriate taxpayer account and return record.
+Data is available for cross-matching, risk scoring, and audit flagging.
+Exceptions
+EF-1: Connection failure with e-invoice system – system logs issue and retries or alerts admin. 
+EF-2: Data validation failure – system quarantines invalid records and notifies officer.
+Information Requirements
+Assumptions
+APIs or data warehouse interface with the e-invoice system is established and secure. 
+Taxpayers are issuing invoices electronically in compliance with the mandate. 
+All relevant back office modules are capable of processing e-invoice data.
+Notes and Issues
+Business Rules
+Only authorized data can be pulled from the e-invoice system. 
+Data must be matched to registered taxpayer records. 
+Invoice data must be immutable once stored, except via audit trail-managed corrections. 
+The system must support real-time or batch syncing based on configuration.
+Attachments
+Activity Diagram
+15. Submit Return Processing.
+Use Case ID
+BUC-EFR-015
+Use Case Name
+Submit Return Processing
+Use Case Description
+Submit tax returns and initiate backend validations, calculations, and workflows, including risk scoring, cross-matching, and acknowledgment generation.
+Actors
+Taxpayer 
+Tax Agent 
+System
+Pre-conditions
+The return form is filled and validated. 
+The filing period is open. 
+The taxpayer is authorized to file for the selected tax type and period.
+Any required attachments (e.g., annexes, invoices) are uploaded.
+Triggers
+Taxpayer clicks “Submit” after completing the return form. 
+Scheduled filing period reminders prompt submission. 
+External systems (e.g., cash register, invoice matching) push return data ready for submission.
+Flow of Events
+The taxpayer completes and reviews the return form.
+The system performs preliminary validations (mandatory fields, figures, and filing period).
+The taxpayer submits the return.
+System saves return, generates submission timestamp, and reference number.
+Backend engine triggers cross-matching, risk assessment, and workflow routing.
+Acknowledgment is generated and delivered (portal/SMS/email).
+Alternate Flow
+AF-1: Taxpayer submits an amended return – system checks eligibility (e.g., not under audit). 
+AF-2: Return submitted with minor validation issues – system accepts but flags for officer review.
+Post Conditions
+Return is submitted and stored in the system. 
+Backend processing tasks (validations, risk scoring, etc.) are triggered.
+Acknowledgment receipt is generated and sent to the taxpayer.
+Exceptions
+EF-1: System validation fails – return submission is blocked with error messages. 
+EF-2: Backend processing error – system logs issue and alerts officer for manual handling.
+Information Requirements
+Assumptions
+System integrations (e-invoice, payment, taxpayer registry) are operational. 
+Taxpayer credentials and digital signature (if required) are valid.
+Workflow rules and the validation engine are properly configured.
+Notes and Issues
+Business Rules
+Return can only be submitted once per filing period unless amended.
+Late submissions may incur penalties or interest. 
+Certain fields may be auto-calculated or locked based on configuration.
+ Returns are locked for edits after submission unless an amendment is initiated.
+Attachments
+Activity Diagram
+16. Configure Cross-Match.
+Use Case ID
+BUC-EFR-016
+Use Case Name
+Configure Cross-Match.
+Use Case Description
+This use case covers the setup and configuration of rules that enable the system to validate tax return data by cross-matching with internal and external data sources, such as e-invoices, cash register machines, third-party databases, and manual receipts.
+Actors
+System Administrator 
+Compliance Officer 
+Risk Analyst
+Pre-conditions
+The authorized user is logged in with permissions to configure validation and cross-matching rules. 
+Data interfaces (e.g., to e-invoice, data warehouse) are active. 
+Tax types and fields subject to matching are predefined.
+Triggers
+New data source integration (e.g., third-party registry). 
+Change in compliance policy or audit criteria. 
+Admin schedules rule update. 
+Return submission or nightly batch triggers rule execution.
+Flow of Events
+Admin accesses the Cross-Match Configuration module.
+Defines or updates rule sets (e.g., match declared sales vs. e-invoiced sales).
+Specifies source systems and matching fields.
+Sets thresholds, tolerances, and actions (flag, block, alert).
+Saves and activates rules.
+The system applies rules during the submission or batch processing of returns.
+Alternate Flow
+AF-1: Admin deactivates an outdated or redundant rule. 
+AF-2: Rules are versioned and tested in a staging environment before production deployment.
+Post Conditions
+Cross-matching rules are saved and active in the system. 
+Rules are applied during return validation, risk scoring, and audit selection. 
+Discrepancies are flagged automatically based on configured thresholds.
+Exceptions
+EF-1: Invalid configuration (e.g., field mismatch, missing source) – system prevents saving and displays error. 
+EF-2: Data source unavailable – cross-match skipped with logged alert.
+Information Requirements
+Assumptions
+Data sources (internal/external) provide timely and accurate data.
+ The system supports a rule engine with flexibility to define conditions, tolerances, and linked workflows. 
+Users have proper access rights.
+Notes and Issues
+Business Rules
+Each cross-match rule must specify source, target, fields, and action.
+ Rules can be prioritized or weighted for scoring. 
+Rules must be auditable and version-controlled. 
+Rule changes should not affect historical cross-matched data retroactively.
+Attachments
+Activity Diagram
+17. Create Tax Fraud Investigation Case.
+Use Case ID
+BUC-EFR-017
+Use Case Name
+Create a Tax Fraud Investigation Case.
+Use Case Description
+Flag a taxpayer or specific return for suspected fraud and initiate a formal investigation workflow. This includes capturing evidence, assigning officers, and tracking the progress of the case.
+Actors
+Compliance Officer 
+Audit Officer 
+System
+Pre-conditions
+A return or transaction triggers fraud indicators (via risk engine or manual review). 
+The officer is authorized to initiate a case. 
+ The investigation case management system is accessible.
+Triggers
+Return is flagged by the risk engine or manual review. 
+The officer receives intelligence or a complaint. 
+A discrepancy was found during the audit or cross-matching.
+Flow of Events
+System or officer flags a return for suspected fraud.
+Officer accesses fraud case management.
+Input case details (e.g., taxpayer ID, return period, suspected issues).
+Uploads or links supporting documents.
+Assigns to the investigation team or officer.
+System logs the case, sets timelines, and begins tracking actions.
+Alternate Flow
+AF-1: Case created from automatic detection during cross-match or risk scoring. 
+AF-2: External whistleblower report triggers fraud case.
+Post Conditions
+A fraud case is created, assigned, and registered with a unique case number. 
+Audit/investigation workflow is initiated. 
+Supporting documents and evidence are linked to the case.
+Exceptions
+EF-1: Invalid configuration (e.g., field mismatch, missing source) – system prevents saving and displays error. 
+EF-2: Data source unavailable – cross-match skipped with logged alert.
+Information Requirements
+Assumptions
+Fraud risk rules and detection engine are operational. 
+Evidence and cross-matching data are accessible. 
+Workflow tools support multi-stage case progression.
+Notes and Issues
+Business Rules
+Fraud indicators must be defined and regularly updated. 
+Only authorized roles can initiate and manage investigation cases. 
+All steps must be logged for audit trail. 
+Taxpayer notification and rights to respond must comply with legal framework.
+Attachments
+Activity Diagram
+Register Manual Receipt
+The Register Manual Receipt sub-module enables tax officers or authorized staff to capture and record manually issued receipts outside the automated payment and receipt system. This ensures that cash or paper-based payments made by taxpayers are properly digitized, reconciled, and integrated into the central tax system for compliance and audit purposes.
+18. Register Manual Receipt.
+Use Case ID
+BUC-EFR-018
+Use Case Name
+Register Manual Receipt.
+Use Case Description
+Record and store sales receipts issued manually by taxpayers who are not using electronic invoicing systems. This data supports return validation, audit, and risk analysis, especially for small or exempted businesses. 
+Actors
+Taxpayer 
+Tax Officer 
+System
+Pre-conditions
+The e-invoicing is authorized or required to use manual receipts.
+Manual receipt books are approved and assigned. 
+System access is available to record the receipts.
+Triggers
+The taxpayer issues a manual receipt. 
+The officer receives a batch of receipts during an audit or visit. 
+The taxpayer submits a manual receipt report as part of the return filing.
+Flow of Events
+1. The taxpayer or officer accesses the manual receipt registration interface.
+2. Enters receipt details (e.g., receipt number, date, amount, buyer info, goods/services description).
+3. System validates format, sequence, and taxpayer identity.
+4. The receipt is stored and linked to the taxpayer’s profile.
+5. Confirmation or reference number is generated.
+Alternate Flow
+AF-1: Receipt entered by officer on behalf of the taxpayer during inspection or assistance visit. 
+AF-2: Bulk upload of multiple receipts using a structured template.
+Post Conditions
+Manual receipt is logged in the system. 
+Data is linked to the taxpayer’s return or transaction history. 
+Receipt is available for verification and cross-matching.
+Exceptions
+EF-1: Duplicate or invalid receipt number – system rejects entry. 
+EF-2: Unauthorized manual receipt usage – flagged for investigation or audit. 
+Information Requirements
+Assumptions
+Manual receipts are traceable and subject to periodic verification.
+The system supports both single and bulk entry. 
+Taxpayers have access to the registration portal or file through field officers.
+Notes and Issues
+Business Rules
+Manual receipts must follow a pre-approved format and sequence. 
+Each receipt must be uniquely identified and time-stamped. 
+Only taxpayers with exemptions or approvals may use manual receipts.
+Receipts must be recorded within a defined timeframe (e.g., 7 days). 
+Attachments
+Activity Diagram
+Filing Extensions Management
+The Filing Extensions Management submodule governs a request to extend tax document submission and payment deadlines. The extension can be a taxpayer-initiated requested through the e-service portal and government-declared such as in case of emergencies or force majeure. The system supports configurable case and workflow management components, enabling automated rule-based approvals while routing complex cases (e.g., requests including penalty or interest waivers) to tax officers for review and approval.
+Taxpayers can apply for due date extensions and penalty waivers through the e-service portal. The system supports configurable business rules, allowing either automated decision-making or tax officer review. Responsible administrators define workflows and rules for both types of requests. An official government decision extends filing due dates for a defined group of taxpayers in response to extraordinary circumstances such as a force majeure event.
+The tax officer have the mandate to manage a requests. The tax officer is responsible for reviewing, categorizing, and approving or rejecting both taxpayer-initiated extensions and government-declared bulk extensions. The officer approve or reject requests overriding system recommendations if needed, with the ability to record reasons for any rejection. The system updates the taxpayer’s filing calendar and ledger with the new due date for the approved extension request. A notification is sent via email, SMS, or portal message, informing the taxpayer of the revised deadline and prompting them to complete their filing accordingly.
+  Request Due Date Extensions
+Use Case ID
+BUC-EFR-0019
+Use Case Name
+Request Due Date Extensions
+Use Case Description
+This use case allows a taxpayer or their agent to requests to extend tax submission/payment deadlines. The request include a waiver of applicable penalties and interest.
+Actors
+Primary Actor(s): Taxpayer / Tax agent
+Secondary Actor(s):
+MoR Back-office tax officer
+MoR e-service portal
+Pre-conditions
+A tax obligation with an upcoming or active due date exists in the taxpayer’s ledger.
+The system has a configurable case management component and is configured to handle due date extensions.
+Triggers
+Taxpayer or tax agent initiates filing due date extension request through the portal or branch office.
+Flow of Events
+Taxpayer logs into the e-service portal and selects “Request Due Date Extension.”
+System displays relevant tax obligations with due dates.
+The taxpayer or tax agent identifies the specific tax obligation for which they are requesting an extension, provides a detailed reason, and, where applicable, may also request a waiver of penalties and interest.
+The taxpayer or tax agent submits the request.
+System validates request against configurable business rules and the request is either automatically approved.
+Alternate Flow
+A1: Incomplete Information
+Trigger: The taxpayer attempts to submit a request (Step 4) without providing the required detailed reason.
+Flow: The system displays an error message, "Please provide a detailed reason for your extension request." The process resumes at step 3.
+A2: Request for an Ineligible Obligation
+Trigger: The taxpayer selects a tax obligation (Step 3) that is not eligible for a due date extension.
+Flow: The system displays a message, "This tax obligation is not eligible for a due date extension." The process returns to step 2, allowing the taxpayer to select a different obligation.
+A3: Tax Officer Review for Complex Requests
+Trigger: The taxpayer's request includes a waiver for penalties/interest, or it falls outside of the automated business rules.
+Flow: Once the taxpayer submits their request, it is automatically routed to the designated tax officer's to review. 
+Post Conditions
+The system successfully records the due date extension request and updates the taxpayer’s account.
+If the request includes a penalty and interest waiver, its status is set to "Pending" in the case management system and automatically forwarded to the designated tax officer for review.
+For approved request the system updates the taxpayer’s filing calendar and ledger, applies any approved waivers, and recalculates affected returns accordingly.
+Exceptions
+E1: Invalid Taxpayer Status
+Trigger: The system detects that the taxpayer's status (e.g., suspended, terminated) prevents them from being able to file an extension request.
+Flow: The system immediately rejects the request and displays a message informing the taxpayer that they are not eligible to request an extension due to their current status. The process terminates.
+E2: No Active Tax obligation
+Trigger: The taxpayer submits a request for a due date extension when there are no upcoming or active tax obligations on their account.
+Flow: The system displays a message to the taxpayer indicating that no extension can be requested at this time. The request is not processed.
+E3: Duplicate Request
+Trigger: The taxpayer attempts to submit a due date extension request for an obligation for which a request is already pending or has been approved.
+Flow: The system prevents the submission, notifies the taxpayer that a request for this obligation is already in the system, and provides the status of the existing request.
+E4: Exceeds Maximum Extensions
+Trigger: The taxpayer's request exceeds the configurable limit for the number of extensions allowed for a specific tax type or period.
+Flow: The system automatically rejects the request and notifies the taxpayer that the maximum number of extensions has been reached. The case is logged for a full audit trail.
+E5: Invalid Reason for Extension
+Trigger: The taxpayer's reason for the extension does not match the list of reasons pre-approved in the system's configurable business rules.
+Flow: The system displays an error message stating the reason is invalid. The taxpayer may be redirected to a list of acceptable reasons or instructed to contact a tax officer for assistance.
+Information Requirements
+Assumptions
+The system administrators have already configured the business rules that govern due date extensions, including the number of extensions, acceptable reasons, and maximum periods.
+Notes and Issues
+Extension requests must be auditable with a complete history of submission and decision.
+Business Rules
+The system automates the processing of due date extension requests by applying configurable business rules that govern the number of extensions, acceptable reasons, and maximum periods.
+Taxpayers can optionally request a waiver of penalties and interest, but these requests are always routed to a tax officer for explicit review and approval.
+Approval of a waiver request triggers an automated process that updates the taxpayer's account, filing calendar, and ledger. The system applies the approved waivers and recalculates the final tax obligation.
+When a tax officer or the system automatically approves a request, the taxpayer is not flagged as non-compliant for late filing, and all extension requests are processed under clear, legally defined criteria to prevent arbitrary decisions and ensure fair, consistent application of rules.
+Attachments
+The necessary documentation for a taxpayer to provide proof and a reason for their extension request. It is provided in either PDF, JPEG, or PNG format. The officer must be able to access and review this document to complete the approval process.
+Activity Diagram
+20.  Manage Extension Requests / Types of Extension
+Use Case ID
+BUC-EFR-0020
+Use Case Name
+Manage Extension Requests / Types of Extension
+Use Case Description
+This use case manages filing due date extensions for taxpayers, including individual requests and government-declared extensions. It involves processing, categorizing, of extensions and approving these requests by MoR Tax Officer. 
+Actors
+Primary Actor(s): MoR Back-office tax officer
+Secondary Actor(s):
+Ministry of Revenue (MOR) Officials
+Taxpayer / Tax agent
+MoR back office system
+Pre-conditions
+The system has a configurable case management component for taxpayer-initiated extensions.
+The system has a workflow management component for government-declared extensions (e.g., force majeure).
+Extension request is submitted and recorded in the system.
+Triggers
+A request for a due date extension is initiated, either by a taxpayer/agent or through a government decision affecting a group of taxpayers. The system's case or workflow management component processes the request, enabling the tax officer to access pending extension cases or initiate a bulk extension action.
+Flow of Events
+A tax officer logs into the back-office system and selects “Manage Extension Requests / Types of Extension” to access pending extension requests.
+The system's case or workflow management component processes the request and presents the relevant taxpayer data, including registration status and compliance history, to the tax officer.
+The tax officer reviews the request and categorizes it as either a taxpayer-initiated or a government-declared extension.
+The officer applies predefined business rules governing extension eligibility, duration limits, and justification criteria.
+Based on the predefined business rule assessment the officer the officer approves or rejects the request.
+After approval the system automatically updates the taxpayers filing calendar and ledger, applies any approved waivers, and recalculates affected returns.
+The system communicates the decision to the taxpayer via SMS, email, or the taxpayer portal.
+Alternate Flow
+A1: Incomplete or Invalid Request.
+Trigger: The system detects that the request is incomplete, lacks valid documentation, or contains invalid information (e.g., inactive status, due date has passed).
+Flow: The system automatically rejects the request or flags it for manual review. The officer is notified of the issue and may request additional documentation.
+A2: Conflict in Government-Declared Extension.
+Trigger: The configured parameters for a government-declared bulk extension conflict with existing filing schedules or taxpayer categories.
+Flow: The system prompts the officer to revise the configuration before proceeding with the bulk updates.
+A3: Government-Declared Extension.
+Trigger: The tax officer needs to configure bulk extension parameters in step 5.
+Flow: The officer configures bulk extension parameters. The process then continues with the Main Flow, Step 6.
+Post Conditions
+Once approved by a tax officer or the automated system, predefined actions are triggered, including updating filing calendars and ledgers, applying the approved waivers, and recalculating affected returns.
+Exceptions
+E1: Exceeds Maximum Extensions.
+Trigger: The taxpayer's request exceeds the configurable limit for the number of extensions allowed for a specific tax type or period.
+Flow: The system automatically rejects the request and notifies the taxpayer that the maximum number of extensions has been reached. The case is logged for a full audit trail.
+E2: Invalid Reason for Extension.
+Trigger: The taxpayer's reason for the extension does not match the list of reasons pre-approved in the system's configurable business rules.
+Flow: The system displays an error message stating the reason is invalid. The taxpayer may be redirected to a list of acceptable reasons or instructed to contact a tax officer for assistance.
+Information Requirements
+Assumptions
+The business rules governing due date extensions are pre-configured by system administrators and are the foundation for automated processing.
+The case management and workflow management systems are in place, ready for integration with defined APIs and data transfer protocols.
+Notes and Issues
+Automated or manual extension decisions must be fully auditable, with timestamps, officer ID, and a record of all applied rules and waivers.
+The use case covers both individual and bulk extensions, which should be handled by distinct, but integrated, system components.
+Business Rules
+The system automates the processing of due date extension requests by applying configurable business rules that govern the number of extensions, acceptable reasons, and maximum periods. The business rules can be applied to a categories selected by a responsible person.
+The taxpayer must have a valid reason for requesting a filing due date extension.
+The filing due date for taxpayer initiated extension must be upcoming or active.
+An official government decision is made by authorized MoR officials in response to extraordinary circumstances, defining tax obligations and a subset of affected taxpayers. This information initiates a bulk extension workflow.
+Taxpayers can optionally request a waiver of penalties and interest, but these requests are always routed to a tax officer for explicit review and approval.
+Approval of a waiver request triggers an automated process that updates the taxpayer's account, filing calendar, and ledger. The system applies the approved waivers and recalculates the final tax obligation.
+When the tax officer or system approves a refund request, the taxpayer is not flagged as non-compliant for late filing, and their compliant status is maintained without late filing penalties, with all approvals governed by transparent, rule-based criteria to uphold statutory deadlines and ensure extensions are granted only when objectively justified.
+Attachments
+Taxpayers must submit supporting documents in PDF, JPEG, or PNG format to justify their extension request. The tax officer reviews these files as part of the approval process.
+Activity Diagram
+Refund Management
+The Refund Management subsystem governs the end-to-end handling of VAT and related refunds for privileged entities such as embassies, NGOs, diplomatic missions, and international organizations. The process begins when taxpayers or their agents submit refund claims through the MoR e-service portal by providing transaction details and uploading supporting documentation such as invoice. 
+The submitted requests are validated, logged, and routed to refund officers for review. The subsystem supports verification of invoices, requests for additional evidence., and nomination of refund amounts. High-value claims are escalated to team leaders for approval. High-value claims are escalated for approval. Once the refund request is approved, the taxpayer's account and ledger are updated to reflect the refund. The approved refund amount is then either credited directly to the taxpayer's bank account or used to offset any outstanding tax liabilities they owe, with the Ministry of Revenue's ledger also updated accordingly.
+This section outlines the process for managing refunds, specifically for privileged entities such as NGOs and embassies. Taxpayers can submit claims for VAT and other refunds, which the system then validates before the refund is disbursed to the correct entity.
+The Refund Management subsystem governs the end-to-end handling of VAT and related refunds for privileged entities such as embassies, NGOs, diplomatic missions, and international organizations. It enables taxpayers or their agents to submit refund claims through the MoR e-service portal by providing transaction details and uploading supporting documentation. Submitted requests are validated, logged, and routed to refund officers for review. The subsystem supports verification of invoices, requests for additional evidence, and nomination of refund amounts. High-value claims are escalated to team leaders for approval. Approved refunds trigger system updates to taxpayer accounts and ledgers and are either disbursed via bank transfer or offset against outstanding tax liabilities.
+This use case allows privileged taxpayers (e.g., embassies, NGOs, diplomatic missions, international organizations) or their agents to submit VAT refund requests. The taxpayer provides transaction details and uploads required supporting documents via the MoR e-service portal. Once submitted, the request is logged and forwarded to the refund management team for processing. This use case describes how refund officers and team leaders process privileged taxpayer VAT refund requests. It includes document verification, requesting additional evidence, validating invoices, nominating refund values, escalating high-value claims for approval, and updating taxpayer accounts once approved. the taxpayer’s account and ledger are updated to reflect the refund, including any applicable offsets or adjustments. The approved refund amount is either credited directly to the taxpayer’s bank account via integrated bank-to-bank payment or offset against outstanding tax liabilities, with corresponding updates to the Ministry of Revenue’s ledger.
+Request VAT and Refund for Privileged
+Use Case ID
+BUC-EFR-0021
+Use Case Name
+Request VAT and Refund for Privileged
+Use Case Description
+This use case enables privileged taxpayers, such as NGOs, embassies, and diplomatic missions, to submit VAT refund claim through the system. 
+Actors
+Primary Actor(s): Privileged Taxpayer
+Secondary Actor(s): System
+Pre-conditions
+Taxpayer must be registered as a privileged entity in the MoR system.
+A valid transaction eligible for refund exists within the legally defined period (e.g., one year).
+Triggers
+Privileged taxpayer or their agent submits a VAT refund request via the e-service portal.
+Flow of Events
+The privileged taxpayer logs into the back-office system and selects “Request VAT and Refund for Privileged” to submits a VAT refund request via the system.
+The system displays the refund form, pre-filled with basic taxpayer details (TIN, entity type, registration details).
+The taxpayer enters refund details including Transaction reference number(s), Tax period covered, Supplier name and TIN, Invoice number, date, and taxable amount, VAT amount claimed for refund and Reason for refund (e.g., diplomatic exemption, NGO entitlement).
+Taxpayer uploads supporting document such as invoices/contracts and Internal refund review reports.
+Taxpayer submits the request.
+The system records the request, forward and notifies the team leader.
+Alternate Flow
+A1: Missing or Invalid Documentation
+Trigger: Taxpayer submits without required invoices/contracts or with invalid file formats.
+Flow: System rejects submission and prompts taxpayer to upload valid documents before proceeding.
+Post Conditions
+The VAT refund request is submitted to the designated tax office and enters the approval workflow for further processing.
+Exceptions
+E1: Ineligible Entity
+Trigger: Taxpayer is not recognized as a privileged entity.
+Flow: System immediately rejects request with notification: Your entity is not eligible for VAT refunds.
+E2: Expired Claim Period
+Trigger: Refund requested beyond the legal timeframe (e.g., more than one year from transaction).
+Flow: System rejects and notifies taxpayer that claim period has expired.
+E3: Duplicate Claim
+Trigger: Refund request already exists for the same invoice/transaction.
+Flow: System blocks submission, displays status of existing request.
+Information Requirements
+Assumptions
+Privileged taxpayers are pre-registered and verified in MoR system.
+Notes and Issues
+Refunds may be offset against outstanding liabilities before payment.
+Business Rules
+Only officially recognized privileged entities (e.g., embassies, NGOs, diplomatic missions, international organizations) are eligible to submit VAT refund requests.
+Refund requests must be submitted within the legally defined period (e.g., one year from the date of the taxable transaction, unless otherwise specified by law).
+Refund officers can suggest a reduced refund amount, but this must be approved by a team leader if the suggested value exceeds a certain threshold.
+Approved refunds are automatically processed to update the taxpayer’s account, ensuring accurate ledger adjustments and compliance with offsetting rules. Refund claims undergo automated risk profiling(low-risk claims from compliant taxpayers are fast-tracked via the Green Channel for immediate payment, while high-risk or anomalous claims are routed to manual audit via the Red Channel.
+Each refund request must be accompanied by valid supporting documents (e.g., invoices, contracts) in accepted formats (PDF, JPEG, PNG) that justify the claim.
+Refund officers can suggest a reduced refund amount, but this must be approved by a team leader if the suggested value exceeds a certain threshold.
+Approved refunds are automatically processed to update the taxpayer’s account, ensuring accurate ledger adjustments and compliance with offsetting rules. Refund claims undergo automated risk profiling(low-risk claims from compliant taxpayers are fast-tracked via the Green Channel for immediate payment, while high-risk or anomalous claims are routed to manual audit via the Red Channel.
+Attachments
+Uploaded invoices/contracts (PDF, JPEG, PNG).
+Internal refund review reports (PDF, JPEG, PNG).
+Activity Diagram
+Manage Refund Process
+Use Case ID
+BUC-EFR-0022
+Use Case Name
+Manage Refund Process
+Use Case Description
+Validate and disburse refund to privileged entities and adopts the 'Green/Red Channel' approach to ensure legitimate refunds are paid.
+Actors
+Primary Actor(s): Refund Officer, Refund Team, Team Leader
+Secondary Actor(s): Privileged Taxpayer / Agent, System
+Pre-conditions
+A refund request exists in the system, submitted by a privileged taxpayer/agent.
+Supporting documents are available in the system or pending upload.
+Refund rules, approval thresholds, and workflows are configured.
+Triggers
+A privileged taxpayer or their authorized representative submitted a new or existing VAT refund request.
+Flow of Events
+The Team Leader logs into the back-office system and opens “Manage Refund Process.”
+The Team Leader assigns the refund request to a specific Refund Team for handling.
+The Refund Officer reviews the refund request along with all submitted supporting documents.
+If the documents are incomplete or unclear, the Refund Officer sends a system-generated request (via taxpayer portal, email, or SMS) asking the taxpayer to provide additional evidence.
+The Taxpayer uploads the requested documents, and the system automatically links them to the existing refund case.
+The Refund Team validates the invoices and analyzes the refund claim according to the applicable business rules and thresholds.
+Based on the analysis, the Refund Officer determines a refund amount.
+If the refund amount is within the configured approval threshold, the Refund Officer can directly approve or reject the claim.
+Once approved, the system processes the refund, updates the taxpayer’s ledger, applies any offsetting rules (if the taxpayer owes outstanding amounts), and finalizes the transaction.
+The system utilizes automated risk profiling to determine the decision path: 'Green Channel' (low-risk) claims are auto-approved for immediate payment, while 'Red Channel' (high-risk) claims are routed for mandatory audit verification. Upon conclusion of this process, the system notifies the taxpayer of the final decision (approval, partial approval, or rejection) via the taxpayer portal, email, and/or SMS
+Alternate Flow
+A1: High-Value Refund Escalation
+Trigger: If the refund amount exceeds the configured approval threshold.
+Flow: The system automatically sends the claim to a Team Leader for review. The Team Leader can approve, reject, or request more information, and the process continues from step 8.
+A2: Partial Approval
+Trigger: The system's validation process identifies that only a portion of the submitted invoices are valid for a refund.
+Flow: The Refund Officer approves the eligible portion of the claim, rejects the invalid invoices, and records the specific reasoning. The system sends a detailed message to the taxpayer, showing which items were approved and which were rejected.
+Post Conditions
+The taxpayer’s account and ledger are updated to reflect the refund, including any applicable offsets or adjustments. The approved refund amount is either credited directly to the taxpayer’s bank account via integrated bank-to-bank payment or offset against outstanding tax liabilities, with corresponding updates to the Ministry of Revenue’s ledger.
+Exceptions
+E1: Invalid/Ineligible Documents
+Trigger: Supporting documentation provided with the claim is found to be invalid or ineligible during system validation.
+Flow: The system either automatically rejects the claim or flags it for an officer to request corrections from the taxpayer.
+E2: Non-Compliance Detected
+Trigger: The refund claim conflicts with the taxpayer's compliance history, indicating a potential issue.
+Flow: The claim is automatically escalated and flagged for a full audit.
+E3: Duplicate Request
+Trigger: The system detects a submission that is a duplicate of a previously filed request.
+Low: The submission is automatically blocked and flagged to prevent redundant processing.
+E4: Expired Claim
+Trigger: The system automatically rejects claims that are filed after the legal dateline.
+Flow: The system automatically rejects the claim and sends a notification to the taxpayer.
+Information Requirements
+Assumptions
+All refund officers and team leaders have authorized system access.
+Refund processing rules and thresholds are preconfigured.
+Notes and Issues
+Refunds may be offset against outstanding liabilities before cash transfer.
+Business Rules
+Refunds require supporting invoices/contracts for validation.
+High-value claims must be escalated for team leader approval.
+Refund officers may nominate reduced refund amounts but cannot approve beyond thresholds.
+Attachments
+Taxpayers must upload supporting documents such as invoices and contracts in PDF, JPEG, or PNG format. Moreover, Officer review notes are attached as PDF, JPEG, or PNG file format as part of the audit trail.
+Activity Diagram
+Return Amendments and Refund ManagementThis sub-module focuses entirely on the Post-Submission Amendment and Refund lifecycle for tax returns, aiming to provide a structured, auditable process for correcting previously filed returns (both electronic and manual) and managing taxpayer-initiated refund claims.
+Request Electronic Return Amendments
+Use Case ID
+BUC-EFR-23
+Use Case Name
+Request Electronic Return Amendments
+Use Case Description
+The system allows a Taxpayer/Tax Agent to request an amendment to a previously submitted electronic return, subject to statutory time limits, audit locks, and risk controls. The system shall apply a Two-Window model (Revision before due date; Amendment after due date/assessment) to protect data integrity while minimizing taxpayer burden (aligned with OECD/IMF/World Bank good practice).
+Actors
+Primary Actor(s): Taxpayer / Tax Agent
+Secondary Actor(s): System
+Pre-conditions
+A return has been filed electronically and is available in the taxpayer’s account.
+Amendment eligibility is met (within statutory limitation period. 
+return not UNDER_AUDIT/INVESTIGATION; no legal hold).
+Triggers
+Taxpayer selects an eligible filed return and initiates the “Amend/Revise Return” action from the portal.
+Flow of Events
+Taxpayer logs into the e-services portal (strong authentication).
+Taxpayer navigates Filing History and selects the target return.
+System validates eligibility: statutory limitation, audit lock, outstanding enforcement holds and return status.
+System determines mode using Two-Window logic (Revision or Amendment) based on due date and assessment status; displays the applicable rules to the user.
+System pre-fills the amendment form from the latest active version and shows a comparative view (Original, New, Variance) for amendable fields.
+Taxpayer updates fields, selects a mandatory standardized Reason for Amendment, and uploads supporting documents when prompted for high-risk line items.
+System performs validations (schema, arithmetic, business rules), recalculates liability/interest/penalties based on delta (variance), and shows a preview of impact (additional tax/refund).
+Taxpayer submits the amendment; system creates a new linked version (child record), generates a unique amendment reference, and issues an electronic acknowledgment/receipt.
+Alternate Flow
+AF-01 Straight-Through Processing (STP): If the amendment meets configurable low-risk thresholds (e.g., revenue-positive or minor variance + low risk score), the system auto-accepts and proceeds to re-assessment without manual intervention.
+AF-02 Clarification Request: If required documents are missing for specific edited line items, the system saves the amendment as DRAFT/ON_HOLD and prompts the taxpayer to provide the missing evidence.
+Post Conditions
+Success: Amended version is stored as a linked child record; original remains unchanged; full audit trail captured; status routed (auto or back-office) for reassessment.
+Failure: No submission is accepted; taxpayer is informed of the reason; draft may remain saved where applicable.
+Exceptions
+EX-01 Audit / Investigation Lock: If the return is UNDER_AUDIT/INVESTIGATION, the system blocks amendment initiation and displays a compliant message with next steps.
+EX-02 Out of Time: If the statutory limitation period has expired, the system disables the amend function and provides an explanation and appeal/contact path.
+Information Requirements
+Assumptions
+Filing history, taxpayer identity, and return calculation services are operational.
+Document management service is integrated for secure upload/storage and retrieval.
+Notes and Issues
+Best-practice alignment: OECD (simplify compliance + risk-based controls), IMF (governance, audit trail, control framework), World Bank (ease of compliance and digital-by-default service delivery).
+Business Rules
+Two-Window logic: Revision (before due date and not assessed) vs Amendment (after due date or assessed).
+Version control: original return is immutable; amendments create linked child versions with unique identifiers.
+Risk and fraud controls: configurable limits for STP, frequency-of-amendment checks, and mandatory attachments for specified high-risk fields (OECD Compliance Risk Management).
+Attachments
+Amendment acknowledgment/receipt; supporting documents as required by amended line items.
+Activity Diagram
+Manage Electronic Return Amendments/Back Office/
+Use Case ID
+BUC-EFR-24
+Use Case Name
+Manage Electronic Return Amendments / Back Office
+Use Case Description
+The system allows authorized back-office staff to review, verify, and approve/reject electronic return amendments using risk-based routing, data matching, and controlled reassessment, consistent with OECD/IMF/World Bank best practice for integrity and service.
+Actors
+Primary Actor(s): Back-Office Staff (Tax Officer / Reviewer)
+Secondary Actor(s): System
+Pre-conditions
+An electronic amendment has been submitted and is available in the processing queue/worklist.
+Officer has appropriate role/authority limits for review and decision.
+Triggers
+System routes an amendment to the back-office worklist (e.g., risk score exceeds STP threshold or rule-based selection).
+Flow of Events
+1. Officer logs into back-office case/worklist module.
+2. Officer opens the amendment case; system displays side-by-side comparison (Original, New, Variance) and reason codes.
+3. System runs and displays automated checks: third-party matching, internal ledger consistency, historical behavior/frequency, and risk indicators.
+4. Officer reviews submitted documents and system flags; may request additional evidence via portal message if needed.
+5. Officer records decision: Approve or Reject; system enforces maker-checker where required by policy.
+6. If approved, system triggers reassessment/recalculation and generates the legally required notice (re-assessment/adjustment) and updates the taxpayer ledger.
+7.  System notifies taxpayer of outcome and provides downloadable notice/receipt; case is closed with full audit record.
+Alternate Flow
+AF-01 Partial Acceptance / Adjustment: Officer approves with adjustments to specific fields; system records justification and issues adjusted reassessment notice.
+AF-02 Refer to Audit: If risk indicators are severe, officer escalates case to audit/investigation workflow; amendment remains pending until closure signal is received.
+Post Conditions
+Success: Amendment decision finalized; reassessment executed if approved; ledger updated; taxpayer notified; audit trail stored.
+Failure: Case not finalized due to errors/holds; taxpayer and/or supervisor notified; no ledger change applied until valid decision.
+Exceptions
+EX-01 Missing Evidence: If mandatory documents are missing, system sets status ON_HOLD and sends a structured request for information with deadlines.
+EX-02 Authority Limit Exceeded: If the amendment impact exceeds officer approval limit, system routes to higher authority for approval (hierarchy-based).
+Information Requirements
+Assumptions
+Risk scoring, third-party matching, and notice generation services are integrated.
+Officer roles and authorization limits are configured in administration.
+Notes and Issues
+Best practice alignment:
+OECD risk-based treatment and transparency. 
+IMF governance and internal controls; 
+World Bank service efficiency and reduced backlog through automation + targeted review.
+Business Rules
+Segregation of duties: the same user should not both create and authorize certain decisions where policy requires (IMF control principle).
+Approval limits by role must be enforced for amendment impacts (tax increase/refund).
+All decisions must be supported by recorded reason codes and evidence; escalation to audit for defined risk triggers (OECD CRM).
+Attachments
+Decision notice; officer review checklist; evidence documents; audit escalation record where applicable.
+Activity Diagram
+Request Manual Return Amendments
+Use Case ID
+BUC-EFR-25
+Use Case Name
+Request Manual Return Amendments
+Use Case Description
+The system supports taxpayer requests to amend returns originally filed manually (paper/assisted filing). The process digitizes amendments with consistent statutory controls, evidence requirements, and auditability, aligned with international good practice.
+Actors
+Primary Actor(s): Taxpayer / Tax Agent
+Secondary Actor(s): Back-Office Staff; System
+Pre-conditions
+Original manual return has been captured/registered in the system and is retrievable.
+Amendment eligibility is met (within statutory limits; not under audit/investigation; no legal hold).
+Triggers
+Taxpayer requests a manual return amendment through the tax office service desk or assisted channel.
+Flow of Events
+1. Taxpayer presents amendment request and identification at the service desk (or authorized assisted channel).
+2. Officer locates the original return record and validates eligibility (statutory limits, audit lock, status).
+3.  System generates/prints a pre-filled amendment form reflecting the latest recorded values for taxpayer review.
+4. Taxpayer provides corrected values, reason for amendment, and required supporting documents.
+5. Officer captures changes into the system using comparative entry (Original, New, Variance) and scans/uploads supporting documents.
+6. System validates data and recalculates liability/interest/penalties based on delta; flags high-risk changes for review as configured.
+7. Officer submits the amendment request; system generates a unique amendment reference and issues a receipt/acknowledgment to the taxpayer.
+Alternate Flow
+AF-01 Remote Assisted Submission: Where enabled, taxpayer submits scanned forms/documents via portal or authorized channel; officer completes capture and validation.
+AF-02 Risk-Based Review: If amendment exceeds thresholds or matches risk patterns, system routes to back-office review/audit rather than immediate finalization.
+Post Conditions
+Success: Manual amendment is digitized as a new linked version with full audit trail; reassessment workflow initiated where applicable; taxpayer issued receipt.
+Failure: No amendment is recorded as submitted; taxpayer is notified and advised on corrective steps; any draft capture is securely stored if policy allows.
+Exceptions
+EX-01 Incomplete Form: If mandatory fields, signatures, reason codes, or documents are missing, the request is rejected or placed ON_HOLD with guidance.
+EX-02 Record Not Found: If the original return record cannot be located, system logs the incident and routes to data resolution team.
+Information Requirements
+Assumptions
+Manual returns are registered in ITAS and can be searched reliably.
+Scanning/document upload infrastructure is available at service points.
+Notes and Issues
+Best-practice alignment: ensures consistent treatment across channels (digital and assisted), reduces errors through pre-fill, and supports integrity via audit logs and risk-based routing.
+Business Rules
+Same legal time limits and audit locks apply to manual amendments as electronic amendments.
+Identity verification is mandatory prior to accepting manual amendments.
+Supporting evidence requirements are enforced based on the nature of changes and risk indicators.
+Attachments
+Scanned amendment form; taxpayer ID verification record; supporting evidence; receipt/acknowledgment.
+Activity Diagram
+Manage Manual Return Amendments
+Use Case ID
+BUC-EFR-26
+Use Case Name
+Manage Manual Return Amendments
+Use Case Description
+The system allows back-office staff to validate, process, and finalize manual return amendments, ensuring consistency with electronic amendment governance, controlled approvals, and ledger integrity.
+Actors
+Primary Actor(s): Back-Office Staff
+Secondary Actor(s): System
+Pre-conditions
+A manual amendment request has been captured and is available in the back-office queue.
+Officer has appropriate authorization/approval limits.
+Triggers
+System places manual amendment in the processing queue following capture at service desk/assisted channel.
+Flow of Events
+1. Officer accesses the manual amendments queue and opens the target case.
+2.  System displays original values, captured amended values, variance, and taxpayer-provided reason codes.
+3.  System runs validation checks (tax rules, arithmetic, ledger consistency) and displays risk indicators and data match results where available.
+4. Officer reviews supporting documents for completeness and authenticity; records findings in the case.
+5. Officer approves or rejects the amendment; system enforces escalation for cases exceeding authority limits.
+6. If approved, system triggers reassessment and updates the taxpayer ledger; notices are generated and delivered via configured channels.
+7. Case is closed with full audit record and document archive.
+Alternate Flow
+AF-01 Request for Information (RFI): Officer issues an RFI to taxpayer for missing/unclear evidence; system places case ON_HOLD with deadline tracking.
+AF-02 Second-Level Review: For high-impact cases, system routes to manager/director for approval under maker-checker/segregation rules.
+Post Conditions
+Success: Manual amendment finalized; ledger updated; reassessment notice issued; audit trail and document archive complete.
+Failure: Case not finalized; no ledger updates applied; taxpayer and/or supervisor notified; issue logged for resolution.
+Exceptions
+EX-01 Unreadable Documents: If scanned documents are unreadable, system requests re-scan/re-upload and blocks finalization.
+EX-02 Data Conflict: If amendment conflicts with third-party data or prior assessments, system flags and routes to specialized review/audit.
+Information Requirements
+Assumptions
+Notice generation and taxpayer communication channels are integrated.
+User roles/limits are configured and maintained.
+Notes and Issues
+Best-practice alignment: ensures manual amendments receive equivalent controls to e-amendments while supporting assisted compliance and strong auditability.
+Business Rules
+Hierarchy-based approval limits must be enforced for manual amendments.
+Maker-checker and segregation of duties apply for high-impact changes.
+High-risk patterns trigger audit referral and enhanced verification.
+Attachments
+Officer decision record; evidence archive; RFI communications where used; issued notices.
+Activity Diagram
+Request Refund /Portal
+Use Case ID
+BUC-EFR-26
+Use Case Name
+Manage Manual Return Amendments
+Use Case Description
+The system allows back-office staff to validate, process, and finalize manual return amendments, ensuring consistency with electronic amendment governance, controlled approvals, and ledger integrity.
+Actors
+Primary Actor(s): Back-Office Staff
+Secondary Actor(s): System
+Pre-conditions
+A manual amendment request has been captured and is available in the back-office queue.
+Officer has appropriate authorization/approval limits.
+Triggers
+System places manual amendment in the processing queue following capture at service desk/assisted channel.
+Flow of Events
+1. Officer accesses the manual amendments queue and opens the target case.
+2.  System displays original values, captured amended values, variance, and taxpayer-provided reason codes.
+3.  System runs validation checks (tax rules, arithmetic, ledger consistency) and displays risk indicators and data match results where available.
+4. Officer reviews supporting documents for completeness and authenticity; records findings in the case.
+5. Officer approves or rejects the amendment; system enforces escalation for cases exceeding authority limits.
+6. If approved, system triggers reassessment and updates the taxpayer ledger; notices are generated and delivered via configured channels.
+7. Case is closed with full audit record and document archive.
+Alternate Flow
+AF-01 Request for Information (RFI): Officer issues an RFI to taxpayer for missing/unclear evidence; system places case ON_HOLD with deadline tracking.
+AF-02 Second-Level Review: For high-impact cases, system routes to manager/director for approval under maker-checker/segregation rules.
+Post Conditions
+Success: Manual amendment finalized; ledger updated; reassessment notice issued; audit trail and document archive complete.
+Failure: Case not finalized; no ledger updates applied; taxpayer and/or supervisor notified; issue logged for resolution.
+Exceptions
+EX-01 Unreadable Documents: If scanned documents are unreadable, system requests re-scan/re-upload and blocks finalization.
+EX-02 Data Conflict: If amendment conflicts with third-party data or prior assessments, system flags and routes to specialized review/audit.
+Information Requirements
+Assumptions
+Notice generation and taxpayer communication channels are integrated.
+User roles/limits are configured and maintained.
+Notes and Issues
+Best-practice alignment: ensures manual amendments receive equivalent controls to e-amendments while supporting assisted compliance and strong auditability.
+Business Rules
+Hierarchy-based approval limits must be enforced for manual amendments.
+Maker-checker and segregation of duties apply for high-impact changes.
+High-risk patterns trigger audit referral and enhanced verification.
+Attachments
+Officer decision record; evidence archive; RFI communications where used; issued notices.
+Activity Diagram
+Manage Refund Request
+Use Case ID
+BUC-EFR-28
+Use Case Name
+Manage Refund Request / Backoffice
+Use Case Description
+The system allows back-office staff to verify, risk-assess, offset liabilities, and approve/reject refund requests. The workflow supports green/amber/red lanes, authority limits, and clear taxpayer notifications.
+Actors
+Primary Actor(s): Back-Office Staff
+Secondary Actor(s): System
+Pre-conditions
+A refund request exists and is assigned to processing queue.
+Officer has appropriate authorization and access rights.
+Triggers
+System routes refund request to officer worklist based on risk lane and processing rules.
+Flow of Events
+1. Officer opens the refund request case from the worklist.
+2.  System displays claim details, credit source, taxpayer compliance profile, and risk lane recommendation.
+3. Officer verifies supporting documents and system matching results; may request clarification where necessary.
+4.  System performs global debt check and calculates offsets across tax types; generates an offset summary.
+5. Officer approves, adjusts, or rejects the refund; system enforces approval limits and escalation for higher amounts.
+6. If approved, system updates ledger, issues refund approval/offset notice, and marks case as APPROVED_FOR_PAYMENT.
+7. System produces reports and sends notifications to taxpayer; case is closed or forwarded to payment order module.
+Alternate Flow
+AF-01 Amber Lane - Clarification: If data mismatches exist (e.g., third-party mismatch), system puts case ON_HOLD and requests additional proof.
+AF-02 Red Lane - Audit Referral: If high-risk, system creates an audit case and suspends refund until audit module returns case outcome.
+Post Conditions
+Success: Refund decision finalized; offsets applied; ledger updated; taxpayer notified; ready for payment order if payable amount remains.
+Failure: Refund not finalized; no payment order generated; taxpayer and supervisor notified as appropriate; case logged for follow-up.
+Exceptions
+EX-01 Insufficient Evidence: If evidence is inadequate, system rejects or holds the case with documented reasons.
+EX-02 Offset Exceeds Refund: If outstanding liabilities exceed refundable amount, system applies full offset and closes case with Notice of Offset (no payment).
+Information Requirements
+Assumptions
+Risk scoring and third-party matching services are available.
+Ledger supports cross-tax-type offsets and maintains clear audit records.
+Notes and Issues
+Best-practice alignment: focuses verification effort where it matters, reduces refund backlog, and protects revenue through offsetting and strong controls.
+Business Rules
+Authority limits: approval ceilings by role must be enforced for refunds.
+Mandatory global debt offsetting prior to payment (revenue protection).
+Risk-based lane routing and audit integration for high-risk claims.
+Attachments
+Refund decision notice; Notice of Offset; audit referral record (if applicable); supporting evidence archive.
+Activity Diagram
+Assess Risk Level and Determine Risk Level
+Use Case ID
+BUC-EFR-29
+Use Case Name
+Assess Risk Level and Determine Risk Level
+Use Case Description
+The system automatically evaluates refund request risk using configurable models and rules, producing a risk score and lane decision (green/amber/red) to support risk-based verification and efficient resource allocation, consistent with OECD Compliance Risk Management and modern tax administration practice.
+Actors
+Primary Actor(s): System (automated); Risk Officer (oversight)
+Secondary Actor(s): Back-Office Staff
+Pre-conditions
+A refund request exists and basic validations are complete.
+Required data sources for risk parameters are available (compliance history, filing/payment behavior, third-party matches).
+Triggers
+Refund request submission or officer initiation triggers risk scoring.
+Flow of Events
+1.  System invokes risk scoring model and rules engine for the refund request.
+2. System evaluates parameters (e.g., claim size, frequency, industry benchmarks, compliance history, third-party mismatches, prior fraud indicators).
+3. System calculates a risk score and assigns a processing lane (green/amber/red) using configurable thresholds.
+4. System records score, contributing factors, and timestamp for auditability and explainability.
+5. System routes the case accordingly: auto-approve/streamlined review (green), clarification hold (amber), or audit/manual verification (red).
+6.  System notifies processing queues and updates case status for tracking and reporting.
+Alternate Flow
+AF-01 Manual Override with Justification: Authorized risk officer may override lane assignment with recorded justification; system retains original score and override reason.
+AF-02 Adaptive Thresholds: Administration updates thresholds; system applies updated rules to new cases and may re-score queued cases if policy allows.
+Post Conditions
+Success: Risk score and lane assignment recorded; case routed to correct workflow; audit trail contains score inputs and outcome.
+Failure: Case routed to manual verification; incident logged; processing continues under controlled fallback.
+Exceptions
+EX-01 Model Failure / Timeout: If risk model fails, system defaults the case to manual verification and logs the incident for IT investigation.
+EX-02 Missing Data Source: If required third-party data is unavailable, system assigns amber lane and requests clarification or waits for data sync
+Information Requirements
+Assumptions
+Risk management module is integrated with refund processing.
+Reference datasets (industry benchmarks, risk parameters) are maintained by authorized administrators.
+Notes and Issues
+Best-practice alignment: OECD risk-based compliance, IMF governance/controls, and World Bank efficiency by targeting verification rather than blanket manual review.
+Business Rules
+Risk model and thresholds must be configurable and governed (change control).
+Explainability: scoring outcome must retain contributing factors for review and dispute handling.
+High-risk triggers must enforce audit referral and suspension of payment until cleared.
+Attachments
+Risk scoring report/explanation; override justification record (if used).
+Activity Diagram
+Issue Payment Order
+Use Case ID
+BUC-EFR-30
+Use Case Name
+Issue Payment Order
+Use Case Description
+The system generates and transmits payment orders for approved refunds after completing validation and liability offsetting. The process enforces maker-checker controls, secure transmission, and reconciliation feedback to ensure financial integrity.
+Actors
+Primary Actor(s): Back-Office Staff (Finance Officer / Maker; Finance Director / Checker)
+Secondary Actor(s): System
+Pre-conditions
+Refund request is approved for payment and payable amount is positive after offsets.Taxpayer bank details (or alternate payment method) are validated per policy.
+Triggers
+Refund status becomes APPROVED_FOR_PAYMENT and reaches configurable batch cut-off or immediate processing rule.
+Flow of Events
+1.  System aggregates approved refunds into a payment batch (configurable cut-off and batching rules).
+2.  System validates budget availability/limits and performs final integrity checks (amounts, beneficiary details, duplicate prevention).
+3.  Maker reviews batch summary and confirms readiness for authorization.
+4. Checker applies authorization/digital signature per maker-checker policy (four-eyes principle).
+5.  System generates the payment instruction and encrypts/signs as required.
+6.  System transmits the payment order to Treasury/IFMIS/Central Bank via secure channel and records the transmission audit.
+7.  System receives ACK/NACK and transaction-level payment status; updates refund statuses (PAID, FAILED) and notifies taxpayer accordingly.
+Alternate Flow
+AF-01 Split Batch on Budget Limit: If batch total exceeds available budget, system splits batch and prioritizes according to FIFO or configured priority rules.
+AF-02 Alternate Payment Method: If bank transfer fails and policy permits, system routes to cheque/mobile money workflow with appropriate controls.
+Post Conditions
+Success: Payment orders transmitted and confirmed; refunds marked PAID; ledger updated; reconciliation records stored; taxpayers notified.
+Failure: Payment not executed; batch and/or items remain pending/failed with logged reasons; corrective workflow initiated; no incorrect status applied.
+Exceptions
+EX-01 Bank / Treasury Rejection (NACK): If the payment file is rejected, system logs the reason, keeps batch in FAILED state, and alerts finance staff for correction and re-submission.
+EX-02 Invalid Account / Payment Failure: If individual payment fails (e.g., closed account), system marks that refund as PAYMENT_FAILED and creates a task to contact taxpayer.
+Information Requirements
+Assumptions
+Interfaces to IFMIS/Central Bank are available and tested.
+Digital signature and encryption standards are agreed with Treasury/Bank.
+Notes and Issues
+Best-practice alignment: IMF (internal controls, segregation of duties), World Bank (IFMIS integration and reconciliation), OECD (integrity and transparency in refund payment execution).
+Business Rules
+Maker-checker is mandatory for payment authorization; segregation of duties between case approval and payment authorization.
+All payment instructions must be securely transmitted and verifiable (encryption/signature).
+Reconciliation feedback must be processed and retained to close the financial loop and support audit.
+Attachments
+Payment order batch summary; signed/encrypted payment instruction file reference; ACK/NACK logs; payment confirmation report.
+Activity Diagram
+Non-Filer – Identification, Notification and Follow-Up
+The Non-Filer – Identification, Notification and Follow-Up requirement addresses the systematic process by which tax authorities detect taxpayers who have failed to file their tax returns by statutory deadlines. Utilizing automated data matching with internal and external databases, the system identifies potential non-filers for further review. Once identified, non-filers receive notifications through various communication channels such as email, SMS, or postal mail, informing them of their filing obligations and potential penalties. The process also includes continuous monitoring and follow-up activities, including risk scoring and enforcement actions, to encourage compliance and secure fiscal revenues while maintaining audit trails and regulatory compliance. This comprehensive approach reduces revenue leakage by targeting both known and unknown non-filers effectively.
+Configure Non-Filer Compliance Rules
+Use Case ID
+BUC-COM-031
+Use Case Name
+Configure Non-Filer Compliance Rules
+Use Case Description
+Enables administrators to define the parameters, timing, and automated actions (such as notices and estimated assessments) that the system must execute when a taxpayer fails to meet filing deadlines.
+Actors
+• System Administrator• Compliance Manager
+Pre-conditions
+• User has administrative rights to the Compliance/Non-Filer module.• The "Estimated Assessment" sub-process has been defined in the system.
+Triggers
+• Changes in tax legislation regarding compliance deadlines.• Policy decisions to automate or adjust the "Stop-Filer" definition.
+Flow of Events
+1. The Administrator accesses the Compliance Configuration dashboard.2. The Administrator defines specific compliance actions, such as "Sending Late Notices" or "Generating Estimated Assessments".3. The Administrator sets the timing for each action (e.g., Notice 1: 5 days post-deadline; Estimated Assessment: 30 days post-deadline).4. The Administrator configures the "Stop Filer" threshold, defining the duration of non-filing required to move a taxpayer from "Non-Filer" to "Stop-Filer" status.5. The system validates the parameters and saves the criteria to the automated background engine.
+Alternate Flow
+Logic Error PreventionTrigger: User attempts to set a compliance action date that occurs before the filing due date.1. System displays an error message: "Action date must be greater than the filing deadline."2. Use case resumes from Step 3.
+Modification of Active RulesTrigger: Admin updates a rule currently being used by a running batch.1. System warns that changes will only apply to the next compliance cycle.2. Admin confirms and saves a new version of the rule.
+Post Conditions
+Success: Compliance rules are active; the system is ready to automatically identify and act on non-filers.
+Exceptions
+Information Requirements
+Assumptions
+Notes and Issues
+The "Stop Filer" status often triggers more aggressive enforcement actions compared to a simple late filer.
+Business Rules
+# Compliance actions must be configurable and parameterized to allow for future policy adjustments.# The system must differentiate between a standard "Non-Filer" and a "Stop-Filer" based on the configured time-lapse.
+Attachments
+Activity Diagram
+Monitor and Identify Filing Non-Compliance
+Use Case ID
+BUC-COM-032
+Use Case Name
+Monitor and Identify Filing Non-Compliance
+Use Case Description
+The system monitors the filing window to identify taxpayers who have not fulfilled their obligations. It accounts for extensions and categorizes non-compliance into specific reporting groups for administrative action.
+Actors
+• System (Compliance Engine)• Tax Officer (Account Owner)
+Pre-conditions
+• Taxpayer obligations and filing frequencies are defined.• Compliance parameters (e.g., Stop-Filer period) are configured (BUC-COM-032).
+Triggers
+• System reaching a configured date (pre-due date monitoring).• Expiry of the filing due date (post-due date identification).
+Flow of Events
+1.  The system generates visibility reports on taxpayers expected to file, beginning from the start of the filing period until the due date.2.  The system checks the database for any granted filing extensions—either for specific taxpayers or government-wide decisions—to adjust the "due date" logic.3.  Immediately after the deadline (or extended deadline), the system scans the ledger to identify taxpayers with an "Expected" return status that remains "Unfiled".4.  The system classifies identified taxpayers into three separate report categories: Late Filers, Non-Filers, and Stop Filers.5.  The system provides filtered reports to Tax Officers based on their assigned account ownership, tax center, or tax type.
+Alternate Flow
+Government-Wide ExtensionTrigger: A national holiday or emergency results in a blanket extension.1. Administrator updates the global tax calendar.2. The system automatically shifts the "non-Filer identification" trigger to the new date.
+Zero non-FilersTrigger: All taxpayers in a specific center have filed.1. The system generates an empty report and logs a "Full Compliance" status for that center.
+Post Conditions
+Success: Non-compliant taxpayers are identified and categorized; data is ready for transactional cross-checking (BUC-COM-034).
+Exceptions
+Information Requirements
+Assumptions
+Notes and Issues
+Providing pre-due date reports allows officers to be proactive in reaching out to taxpayers before they become non-compliant.
+Business Rules
+# Identification logic MUST consider any individual extension approved in the taxpayer's profile.# Reports must be accessible via filters including tax period, tax center, and account owner.
+Attachments
+Activity Diagram
+Cross-Check Non-Filer Transactional Data
+Use Case ID
+BUC-COM-033
+Use Case Name
+Cross-Check Non-Filer Transactional Data
+Use Case Description
+The system analyzes internal and third-party data to determine if a non-filer has active business transactions during the unfiled period, helping to prioritize high-risk non-compliance for enforcement action.
+Actors
+• System (Compliance Engine / Data Warehouse)• Compliance Officer / Risk Analyst
+Pre-conditions
+• Non-filers have been identified and categorized.• Access to internal transactional data and integrated third-party sources (e.g., customs, banking) is established.
+Triggers
+• Completion of the Non-Filer Identification process.• Scheduled batch analysis (e.g., daily or weekly following filing deadlines).
+Flow of Events
+1. The system retrieves the list of identified non-filers.2. The system queries the Data Warehouse for the non-filer's internal transaction records (e.g., sales, purchases) and integrated third-party data (e.g., customs declarations, bank transaction alerts) for the relevant unfiled period.3. The system analyzes the retrieved data to determine if the non-filer had any active business transactions during that period.4. The system generates a Transaction Analysis Report, categorizing non-filers into those with active transactions and those without.5. Based on configurable rules (e.g., transaction volume, frequency), the system automatically flags high-priority non-filers for immediate compliance action.
+Alternate Flow
+Third-Party Data UnavailableTrigger: Connection to a third-party data source (e.g., customs API) is temporarily unavailable.1. System logs the data gap and proceeds with available internal data only.2. Report is generated with a note indicating incomplete third-party data.
+Discrepancy in DataTrigger: Significant mismatch between internal records and third-party data.1. System flags the case for manual review by a Compliance Officer.2. Officer investigates and updates the risk priority manually.
+Post Conditions
+Success: High-priority non-filers with active transactions are flagged and queued for targeted compliance actions (e.g., audit, notice issuance).
+Exceptions
+Information Requirements
+Assumptions
+Notes and Issues
+This analysis transforms non-filer lists from a simple administrative tally into a risk-based enforcement tool, ensuring compliance resources are directed where revenue risk is highest.
+Business Rules
+# Prioritization logic must consider both the volume and value of transactions identified.# A non-filer with zero transactions across all data sources for the period may be classified as "Dormant" and assigned a lower follow-up priority.
+Attachments
+Activity Diagram
+Issue Automated Notifications and Estimated Assessments
+Use Case ID
+BUC-COM-034
+Use Case Name
+Issue Automated Notifications and Estimated Assessments
+Use Case Description
+Automates the issuance of non-compliance warnings and the subsequent generation of estimated tax liabilities to ensure revenue collection when returns are not filed.
+Actors
+• System (Compliance & Billing Engine)• Taxpayer / Tax Agent
+Pre-conditions
+• Taxpayers have been identified as non-filers (BUC-COM-033).• Estimated assessment parameters and notification templates are configured .
+Triggers
+• Arrival of a configured "Compliance Action" date (e.g., 7 days post-deadline).• Expiry of the warning period without a return being filed.
+Flow of Events
+1.  The system identifies non-filers based on the configured timing and automatically sends an SMS/Email notification informing them of their non-compliance.2.  If no return is filed within the secondary grace period, the system triggers the Estimated Assessment sub-process.3.  The system labels the assessment type (e.g., "Non-Filer Estimate"), calculates the estimated liability, and generates a formal Assessment Notice.4.  The system makes the assessment notice available for viewing and download on the e-services portal.5.  The system updates the Taxpayer Ledger with the estimated tax amount, effectively creating a debt.6.  The system sends a concluding Email/SMS to the taxpayer confirming that an estimated assessment has been issued and their ledger updated.
+Alternate Flow
+Taxpayer Files During Warning PeriodTrigger: Taxpayer submits the return after the first notification but before the assessment trigger.1. The system cancels the pending automated assessment task.2. Use case terminates.
+Missing Contact InformationTrigger: Taxpayer has no Email or SMS recorded.1. The system flags the notice for "Manual Print and Mail."2. The task is routed to the Tax Center officer to physically dispatch the notice.
+Post Conditions
+Success: Debt is legally established on the ledger and the taxpayer is notified.
+Exceptions
+Information Requirements
+Assumptions
+Notes and Issues
+The estimated assessment serves as a "placeholder" debt that incentivizes the taxpayer to file their actual self-assessment.
+Business Rules
+# Estimated assessments must be clearly labeled from a predefined list of assessment types.# Any change to the taxpayer ledger must trigger an immediate notification to the taxpayer.
+Attachments
+Activity Diagram
+Reconcile Estimated Assessment with Self-Assessment
+Use Case ID
+BUC-COM-035
+Use Case Name
+Reconcile Estimated Assessment with Self-Assessment
+Use Case Description
+Manages the technical and administrative process of replacing a system-generated estimated assessment with a taxpayer's late-filed self-assessment return.
+Actors
+• Taxpayer / Tax Agent• Tax Officer• System (Ledger & Returns Module)
+Pre-conditions
+• An Estimated Assessment has already been issued and posted to the taxpayer's ledger for the specific period.
+Triggers
+• Submission of a late self-assessment return by the taxpayer for a period already containing an Estimated Assessment.
+Flow of Events
+1.  The taxpayer files a late self-assessment return via the e-services portal.2.  The system identifies the existing estimated assessment and captures the new return separately as a proposed amendment to prevent immediate ledger overwriting.3.  The system routes the return to a Tax Officer for review and approval.4.  Upon the Officer's approval, the system automatically replaces the Estimated Assessment values with the taxpayer's return values.5.  The system updates the Taxpayer Ledger, reversing the estimated debt and posting the approved self-assessed amount.6.  The system sends an automated notification (Email/SMS) to the taxpayer confirming the ledger change and the replacement of the assessment.
+Alternate Flow
+Return RejectionTrigger: The Tax Officer finds the late-filed return to be fraudulent or incorrect.1. The Officer rejects the self-assessment return.2. The system maintains the original Estimated Assessment on the ledger.3. The system notifies the taxpayer of the rejection and the continued validity of the estimate.
+Credit Balance GenerationTrigger: The self-assessment amount is significantly lower than the paid estimated amount.1. The system calculates the overpayment.2. The ledger reflects a credit balance or triggers a refund sub-process based on business rules.
+Post Conditions
+Success: The taxpayer's ledger accurately reflects the approved self-assessed liability, and the estimated assessment is deactivated.
+Exceptions
+Information Requirements
+Assumptions
+Notes and Issues
+This process ensures fairness by allowing taxpayers to correct system estimates with their actual records, while maintaining control via officer oversight.
+Business Rules
+# A self-assessment return filed after an estimated assessment MUST be treated as an amendment requiring officer approval.# The replacement of an estimated assessment with a self-assessment must be recorded in the audit trail to show the transition of debt.
+Attachments
+Activity Diagram
+Municipality Fees and Non-Tax Revenues 
+The following sub module of return filing and processing has a complete business use case about municipality fees and non-tax revenues which are expected to collect revenue generated from different government entities. In this sub module six use cases identified and documented as follows.
+  Interface with Ministries and Agencies
+Use Case ID
+BUC-EFR-037
+Use Case Name
+Interface with Ministries and Agencies
+Use Case Description
+This use case describes the automated, system-to-system process of exchanging data and information between a tax authority's administration system and the systems of other government ministries and agencies. The primary objective is to enable cross-agency data verification, enhance compliance, streamline administrative processes, and helps to collect municipality fees and non- tax revenues. 
+Actors
+Integrated Tax Administration System, External Ministries and Agencies 
+Pre-conditions
+A formal Memorandum of Understanding (MoU) or a legal mandate for data exchange has been established between MoR and the external agency. 
+Technical integration, such as a secure API or a file transfer protocol (SFTP), has been successfully configured and tested.
+A predefined data schema and communication protocol are agreed upon by all parties.
+Triggers
+Flow of Events
+The tax administration system either sends an automated request for data to the external agency or receives a data push from the external agency's system based on a scheduled event or trigger.
+The systems of both parties perform mutual authentication and authorization checks to ensure the secure and legal transfer of data.
+The external agency's system securely transmits the requested or scheduled data to the tax administration system. The data is transferred in the agreed-upon format (e.g., XML, JSON, CSV).
+The tax administration system receives the data and performs automated validation checks to ensure its integrity, format, and completeness.
+The validated data is processed and integrated into the relevant modules of the tax administration system (e.g., taxpayer registration, compliance management, audit).
+The taxpayer's record is updated with the new or verified information received from the external agency.
+The tax administration system sends a technical acknowledgment message back to the external agency, confirming the successful receipt and processing of the data.
+A detailed record of the entire data exchange transaction, including timestamps, data content (or a reference), and status, is logged for audit purposes.
+Alternate Flow
+A1: Data Transfer Failure: 
+The data transfer fails due to a network outage or system error. The system logs the failure and automatically retries the transfer after a predefined period.
+A2: Data Format Error: 
+The received data does not conform to the agreed-upon schema. The system rejects the data, logs the error, and sends a notification to the technical teams for investigation.
+A3: Incomplete Data: 
+The data received is valid but incomplete. The system processes the available data and flags the record for manual review, initiating a workflow for a tax officer to follow up.
+Post Conditions
+The tax administration system successfully receives, processes, and validates data from the external agency. 
+Relevant taxpayer records within the tax system are updated or verified with the information received.  
+A comprehensive audit log of the data exchange transaction is recorded.
+Exceptions
+Security Breach: An attempt at unauthorized access or data injection is detected by the system's security protocols, immediately terminating the connection and alerting security personnel.
+System Downtime: The external agency's system is unavailable, leading to a service-level agreement (SLA) violation and logging the failure.
+Protocol Mismatch: An update to one system's protocol creates a mismatch with the other, causing a communication breakdown that requires technical intervention to fix.
+Information Requirements
+Assumptions
+The external ministry or agency has the technical capability and legal authority to participate in the data exchange.
+Both parties have a dedicated technical support team to manage the interface.
+Any data transformation or mapping requirements are clearly defined and implemented in the system.
+Notes and Issues
+This use case is a cornerstone of modern, integrated e-government initiatives.
+The specific data exchanged varies widely depending on the purpose of the interface (e.g., customs data for import tax, business registration for taxpayer profile).
+Business Rules
+Data exchange must strictly adhere to national data privacy laws and legal mandates.
+All data transfers must be encrypted and occur over secure channels.
+Access to the interface is restricted to authorized systems and credentials.
+A clear, non-repudiable audit trail of all data exchanges must be maintained by both systems.
+The data shared must be a predefined subset necessary for the specific business purpose.
+Attachments
+Inter-agency data exchange agreement, API specifications, data schema definition, sample data exchange logs.
+Activity Diagram
+Register Incoming Bill Information
+Use Case ID
+BUC-EFR-038
+Use Case Name
+Register Incoming Bill Information
+Use Case Description
+This use case describes the process of accurately capturing and recording all relevant details from an incoming bill or invoice received from Ministries and agencies. The primary objective is to create a digital record in the new system that serves as the basis for subsequent financial processes, such as approval, payment, and financial reporting.
+Actors
+Tax Officer, Responsible Officer from Ministries and Agencies
+Pre-conditions
+A valid bill or invoice from Ministries and Agencies has been prepared and sent to MoR.
+The invoice contains all mandatory information, such as invoice number, date, revenue details, and a breakdown of goods/services and costs.
+The individual responsible for registration has access to the system.
+Triggers
+Flow of Events
+MoR system receives an incoming bill, either in a physical format (e.g., mail) or digitally (e.g., email, electronic data interchange).  
+The responsible tax officer reviews the bill to ensure all mandatory information is present and the bill is legitimate. 
+The tax officer begin the registration process which receives from other Ministries and Agencies.   
+The tax officer manually enters key details from the bill into the system, including:       
+Vendor name and ID.       
+Invoice number and date.    
+Total amount, currency, and tax details.      
+Line-item details of the goods or services.     
+Relevant general ledger account codes and cost centers.      
+Due date and payment terms. 
+The staff member scans the physical bill or attaches the digital file to the corresponding entry in the system. 
+The system may automatically perform checks, such as verifying the Ministry/Agency and ensuring the invoice number is not a duplicate. The staff member double-checks the entered data against the original bill. 
+The tax officer submits the registered bill information to initiate the next stage, which is typically routing it through an automated workflow for approval.
+The system provides confirmation that the bill has been successfully registered and is now in a "pending" status.
+Alternate Flow
+A1: Error Correction: If a data entry error is detected after submission, an authorized user can recall the bill from the workflow to correct the information before re-submitting it.
+Post Conditions
+The incoming bill is accurately registered in the system with all essential details captured.
+The system creates a pending liability for the amount of the bill.
+The bill is ready to be routed for approval and payment processing.
+Exceptions
+Duplicate Bill: The system flags an incoming bill as a potential duplicate based on the invoice number, prompting the user to investigate and resolve the issue.
+Missing Mandatory Information: The system prevents the bill from being submitted if key information (e.g., invoice number, date) is missing from the entry.
+Information Requirements
+Assumptions
+Vendors provide accurate and complete bills in a timely manner.
+Staff members responsible for registration are trained in the process and system usage.
+A clear process for handling and escalating exceptions is in place.
+Notes and Issues
+Business Rules
+All bills must be registered in the system within a predefined time frame after receipt.
+Every registered bill must be associated with a valid Ministry/Agency in the system.
+Bill information must be accurately coded to the correct general ledger accounts and cost centers.
+Duplicate invoices must not be processed.
+Attachments
+Activity Diagram
+ Generate Immediate Assessment Notice for Taxpayer
+Use Case ID
+BUC-EFR-039
+Use Case Name
+Generate Immediate Assessment Notice for Taxpayer
+Use Case Description
+This use case describes the automated, system-driven process of generating an immediate assessment notice for a taxpayer. This is typically triggered by a specific event, which allows the tax authority to issue a real-time, non-periodic tax liability notice without a formal tax return filing. The notice informs the taxpayer of their obligation and provides details for payment.
+Actors
+Integrated Tax Administration System, Taxpayer, Tax Officer 
+Pre-conditions
+A predefined set of rules for immediate assessment is configured in the tax administration system. 
+The taxpayer's profile and relevant data are available in the system.
+A clear, valid template for the immediate assessment notice is configured.
+Triggers
+Flow of Events
+An external or internal event triggers the immediate assessment process. 
+The tax administration system ingests the data from the triggering event. The data is processed and validated against predefined business rules to calculate the tax liability.
+The immediate assessment engine applies the configured tax rules, rates, and penalties to the data to calculate the exact tax amount owed. 
+The system automatically populates the immediate assessment notice template with all relevant details, including: 
+Taxpayer's name, TIN, and address.   
+A clear description of the triggering event.      
+The tax type and the calculated amount due.      
+The due date for payment.      
+Instructions on how to pay.       
+Unique notice number.
+A corresponding tax liability is automatically created in the taxpayer's ledger, linking it to the immediate assessment notice.
+The system dispatches the notice to the taxpayer via their registered communication channels, such as their online portal inbox, secure email, or a physical printout for mailing.
+The system logs a detailed record of the entire process, including the trigger, the data used for calculation, the calculated liability, and the delivery status of the notice.
+Alternate Flow
+A1: Assessment Dispute: 
+The taxpayer receives the notice and disputes the assessment. This triggers a separate use case for "Manage Taxpayer Disputes," where an officer reviews the case and potentially amends or cancels the assessment.
+A2: System Error in Calculation:
+ A system error in the calculation leads to an incorrect assessment. A subsequent audit or taxpayer dispute identifies the error, and a correction notice is generated.
+A3: Thresholds Not Met: 
+The triggering event data does not meet the minimum value or criteria for an immediate assessment, so no notice is generated. This is a normal outcome.
+Post Conditions
+An immediate tax assessment notice is successfully generated and delivered to the taxpayer. 
+A corresponding tax liability is created and recorded in the taxpayer's account. 
+The system logs the generation of the notice and its delivery status for audit purposes.
+Exceptions
+Taxpayer Record Not Found: The system cannot find a matching taxpayer record for the incoming data, requiring a tax officer to manually investigate. 
+Information Requirements
+Assumptions
+The data received from external sources is accurate and timely.
+The taxpayer has a valid and accessible communication channel (e.g., online portal, email address).
+The legal framework supports the issuance of non-periodic immediate assessments.
+Notes and Issues
+N/A
+Business Rules
+An immediate assessment can only be triggered by a predefined, approved event.
+All calculations must strictly adhere to current tax legislation and rules. 
+Every immediate assessment notice must be unique and traceable.
+A notice must clearly specify the reason for the assessment and provide a clear due date. 
+All immediate assessments must be recorded in the taxpayer's ledger and tied to the specific notice issued.
+Attachments
+Activity Diagram
+ Send Receipt for Taxpayer
+Use Case ID
+BUC-EFR-040
+Use Case Name
+Send Receipt for Taxpayer
+Use Case Description
+This use case describes the automated process of generating and sending a formal receipt to a taxpayer upon the successful and validated payment of a municipality fees and non-tax liability. This process ensures that the taxpayer receives official proof of payment, which is used for their records, compliance verification, and dispute resolution.
+Actors
+Integrated Tax Administration System, Taxpayer, Tax Officer 
+Pre-conditions
+The expected non-taxable revenue payment has been successfully completed and confirmed by the Ministries and Agencies.
+The payment has been matched to an outstanding tax liability in the taxpayer's account.
+The tax authority system has an official receipt template configured.
+Triggers
+Flow of Events
+The tax administration system receives a confirmed payment notification from the payment gateway (e.g., banks, Telebirr, Derash). The notification includes the payment amount, date, and a unique transaction ID.
+The system uses the taxpayer's TIN and other payment details to automatically match the payment to the outstanding tax liability (e.g., a specific tax return, immediate assessment notice).
+Upon successful matching, the system updates the taxpayer's ledger, marking the specific liability as "paid" and recording the payment details.
+The successful update of the ledger entry automatically triggers the receipt generation process.
+The system populates the official receipt template with all essential information, including: 
+Taxpayer's name and TIN.   
+The amount paid and currency.     
+Date of payment.    
+The tax type and period for which the payment was made.   
+The unique payment transaction ID and receipt number.     
+Official stamp, digital signature, or verification code. 
+The system sends the receipt to the taxpayer through their registered communication channel(s), such as their online portal inbox, secure email, or a downloadable link.
+The system logs a detailed record of the entire process, including the payment confirmation, the ledger update, and the generation and dispatch of the receipt, creating a robust audit trail.
+Alternate Flow
+A1: Manual Matching: 
+If the automated system cannot match the payment to a specific liability, a task is created for a tax officer to manually review and match the payment. The receipt is generated after the officer successfully completes the matching process.
+A2: Overpayment/Underpayment: 
+If the payment amount does not match the liability, the system processes the payment and generates a receipt for the amount paid, but flags the remaining balance (or credit) for follow-up action.
+A3: Batch Receipt Generation:
+ For payments received in bulk (e.g., from a payroll system on behalf of employees), the system generates a batch of individual receipts and dispatches them accordingly.
+Post Conditions
+A formal receipt for the payment is successfully generated and dispatched to the taxpayer.
+The payment is officially recorded and applied to the corresponding tax liability in the taxpayer's ledger.
+The system maintains a complete audit trail of the payment and receipt generation.
+Exceptions
+Payment Gateway Failure: The system fails to receive a payment confirmation from the gateway, halting the process and requiring manual reconciliation.
+Mismatch Error: The system cannot match a payment to any outstanding liability, leading to the payment being placed in a suspense account and a task being created for a tax officer to resolve the issue.
+Communication Failure: The system fails to send the receipt to the taxpayer's registered channel, logging a failure and retrying the delivery after a set period.
+Information Requirements
+Assumptions
+The payment gateway provides reliable and timely payment confirmation. 
+The taxpayer's communication channels are valid and accessible.
+The tax authority's legal framework recognizes the validity of digital receipts.
+Notes and Issues
+This use case is a critical customer-facing component of the tax collection process, building trust and transparency with taxpayers.
+Automation of this process significantly reduces administrative overhead and minimizes human error.
+Business Rules
+A receipt must be generated for every successful, confirmed payment. 
+The receipt must accurately reflect the amount paid, the date, and the liability it covers.
+Every receipt must have a unique, traceable identifier.
+Digital receipts must be issued in a secure, non-editable format (e.g., PDF). 
+A complete audit trail of the payment and receipt issuance must be maintained.
+Attachments
+Activity Diagram
+Announce Bill Amount Using MoR System
+Use Case ID
+BUC-EFR-041
+Use Case Name
+Announce Bill Amount Using MoR System  
+Use Case Description
+This use case describes the automated process of an integrated tax administration system communicating a taxpayer's or customer's bill amount or financial obligation. This is typically an outbound communication triggered by a specific event, or the issuance of a bill for a service. The objective is to proactively inform the recipient of their liability, facilitating timely payment and improving administrative efficiency. 
+Actors
+Integrated Tax Administration System, Taxpayer/Customer, Tax Officer 
+Pre-conditions
+A bill amount or financial liability has been accurately calculated and is ready for announcement.
+The taxpayer's or customer's contact information and preferred communication channel(s) are valid and up-to-date in the system.
+A clear, valid template for the announcement message is configured in the system.
+Triggers
+Flow of Events
+The announcement process is automatically triggered by an event, such as the generation of an immediate assessment notice, the completion of a periodic tax calculation, or the finalization of a service bill.
+The system retrieves all relevant details, including the calculated amount, the due date, the unique bill or notice number, and the specific liability it pertains to.
+The system accesses the taxpayer's or customer's profile to retrieve their registered name, ID, and preferred communication channel (e.g., SMS, email, secure portal notification).
+The retrieved bill information is used to populate a predefined template for the announcement message. The message is crafted to be concise and contain all critical information, such as the amount, due date, and a reference to the full bill/notice.
+The system sends the announcement message through the designated communication channel. This could be an SMS, an automated email, or a secure notification within an online portal.
+The system records the communication event in a log, noting the time, date, recipient, message content (or a reference), and the status of the delivery.
+The system may monitor the delivery status (e.g., email opened, SMS delivered) and log any failures for follow-up.
+Alternate Flow
+A1: Announcement for Multiple Bills:
+ The system can announce multiple bills amounts in a single consolidated message if the taxpayer has several outstanding liabilities.
+A2: Fallback Communication: 
+If the primary communication channel fails (e.g., email bounces back), the system automatically attempts to use a secondary channel (e.g., SMS, physical mail notification) to ensure the message is delivered.
+A3: Manual Trigger: 
+A tax officer can manually trigger an announcement for a specific bill amount, for example, after a dispute has been resolved and a new bill is issued.
+Post Conditions
+An official announcement containing the bill amount is successfully dispatched to the taxpayer/customer.
+The system logs the communication event, including the date, time, content, and delivery status.
+The recipient is informed of their financial obligation.
+Exceptions
+Communication Channel Failure: The system fails to dispatch the message due to technical issues (e.g., invalid email address, network error), and the failure is logged for manual review and correction. 
+System Data Error: The system retrieves incorrect bill information, leading to an inaccurate announcement. This requires a separate process to correct the bill and issue a new announcement.
+Unauthorized Access: An attempt to trigger a bill announcement without proper authorization is blocked and logged as a security incident.
+Configuration Error: The announcement template or communication channel settings are incorrectly configured, leading to a malformed or undelivered message.
+Information Requirements
+Assumptions
+The taxpayer's or customer's contact information is accurate and up-to-date.
+The communication infrastructure (e.g., SMS gateway, email service) is functional and reliable.
+The recipient has given consent for system-based communication.
+Notes and Issues
+This use case focuses solely on the proactive notification of a bill amount, distinct from the generation and delivery of the full bill/notice itself.
+It leverages modern communication methods to improve administrative efficiency and taxpayer engagement.
+Business Rules
+Bill announcements must be sent only for officially finalized and approved liabilities. 
+The announcement message must contain a clear reference to the full bill or notice for which the amount is due.
+The system must use the most current contact information available for the recipient.
+A complete and accurate log of every announcement, including its content and delivery status, must be maintained.
+The timing of the announcement must align with the due date of the bill.
+Attachments
+Announcement message templates (for SMS, email), communication delivery log specifications.
+Activity Diagram
+Capture Details of the Bill (Manually)
+Use Case ID
+BUC-EFR-042
+Use Case Name
+Capture Details of the Bill (Manually)
+Use Case Description
+This use case describes the manual process of a tax officer capturing and recording the details of a physical or non-digitized bill or invoice into the administration system. This is a crucial, though labor-intensive, process for integrating information from paper-based documents into a digital system, ensuring that all financial obligations, even those received offline, are accurately recorded and managed.
+Actors
+Tax Officer, Data Entry Clerk
+Pre-conditions
+A physical or non-digitized bill or invoice has been received.
+The officer has verified the bill is legitimate and contains all necessary information.
+The officer has access to the relevant data entry module in the administration system.
+Triggers
+Flow of Events
+An officer receives a physical bill (e.g., mail, in-person submission) and performs a preliminary review to confirm its legitimacy and completeness (e.g., all fields filled, official stamp if required).
+The officer logs into the tax or financial administration system and navigates to the module for manual data entry of bills.
+The officer manually enters the main details of the bill, such as the unique bill number, the date of issue, the due date, and the identity of the taxpayer or issuing agency/Ministry.
+The officer proceeds to enter the detailed breakdown of the bill, including the individual items or services, unit prices, and any applicable tax or discount amounts.
+The officer may manually cross-reference the details on the physical bill with existing records in the system (e.g., taxpayer's registration details, previous bills) to ensure consistency.
+The officer either scans the bill and attaches a digital copy to the system entry or files the physical document in a secure location, referencing the system's entry ID.
+The officer submits the manually captured bill details for an internal review or approval by a supervisor, particularly for high-value or non-standard bills.
+Upon approval, the bill details are officially finalized in the system, creating or updating the corresponding financial liability.
+The system automatically logs the activity, recording who performed the data entry, the time, and the details of the bill captured, for audit purposes.
+Alternate Flow
+A1: Batch Manual Capture:
+ If an officer receives multiple bills at once, they may use a batch entry screen to capture the details of several bills in a single session. 
+A2: Error Correction: 
+If an error in manual data entry is detected, an authorized user can recall the bill entry from the workflow to correct the details before re-submitting it.
+A3: Partial Entry:
+ If a bill is missing some information, the officer can save a partial entry and flag it for follow-up with the taxpayer, preventing it from proceeding until complete.
+Post Conditions
+All relevant details of the bill are accurately and completely captured in the system.
+A pending liability is created or updated in the taxpayer's or organization's account.
+The physical document is properly filed, and an audit trail of the manual capture is created.
+Exceptions
+Data Input Error: A simple typo or transposition error is made during data entry, which is only caught during a later review or audit, requiring a correction process.
+Unverifiable Data: The information on the bill (e.g., a non-existent taxpayer ID) cannot be verified against the system's records, halting the process and triggering an investigation.
+Security Breach: An unauthorized individual attempts to access the manual entry module, leading to a system alert and immediate access termination.
+Information Requirements
+Assumptions
+The physical documents are legitimate and contain accurate information.
+The officers responsible for manual capture are knowledgeable about the process and system.
+A secure storage system for physical documents is in place.
+Notes and Issues
+Business Rules
+All manual data entry must be performed by authorized and trained personnel.
+Every manually captured bill must be supported by a physical or scanned copy of the original document.
+The entry must be approved by a supervisor or a designated authority before it can be finalized.
+A physical document must be securely filed and easily retrievable for future audits.
+A detailed audit trail of all manual entry activities is mandatory.
+Attachments
+Activity Diagram

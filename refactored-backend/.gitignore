@@ -1,0 +1,42 @@
+# Compiled output
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Spring Boot
+HELP.md
+spring-shell.log
+
+# Test output
+test-output/
+
+# JaCoCo coverage
+*.exec
+
+# Env overrides (never commit credentials)
+.env
+.env.local

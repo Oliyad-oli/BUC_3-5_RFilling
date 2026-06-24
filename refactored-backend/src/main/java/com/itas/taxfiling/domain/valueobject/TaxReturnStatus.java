@@ -1,0 +1,29 @@
+package com.itas.taxfiling.domain.valueobject;
+
+/**
+ * TaxReturn lifecycle status.
+ *
+ * <p>Main flow: DRAFT → CALCULATING → DRAFT (loop) → ACCEPTED → POSTED_TO_LEDGER
+ *               → UNDER_VALIDATION → COMPLETED | MANUAL_REVIEW
+ *
+ * <p>Amendment branch (from COMPLETED):
+ *   COMPLETED → AMENDMENT_DRAFT → AMENDMENT_CALCULATING → AMENDMENT_DRAFT (loop)
+ *   → AMENDMENT_ACCEPTED → AMENDMENT_POSTED → UNDER_VALIDATION → COMPLETED
+ *
+ * <p>Officer branch (from MANUAL_REVIEW):
+ *   MANUAL_REVIEW → COMPLETED (CLEAR) | FRAUD_CONFIRMED (CONFIRM_FRAUD)
+ */
+public enum TaxReturnStatus {
+    DRAFT,
+    CALCULATING,
+    ACCEPTED,
+    POSTED_TO_LEDGER,
+    UNDER_VALIDATION,
+    COMPLETED,
+    MANUAL_REVIEW,
+    FRAUD_CONFIRMED,
+    AMENDMENT_DRAFT,
+    AMENDMENT_CALCULATING,
+    AMENDMENT_ACCEPTED,
+    AMENDMENT_POSTED
+}

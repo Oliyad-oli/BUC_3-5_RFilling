@@ -1,0 +1,17 @@
+# Test application configuration — overrides application.yml for the test slice.
+# Integration tests use Testcontainers; the datasource URL is injected dynamically.
+
+spring:
+  flyway:
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+logging:
+  level:
+    root: WARN
+    com.itas.taxfiling: DEBUG
+    org.flywaydb: INFO

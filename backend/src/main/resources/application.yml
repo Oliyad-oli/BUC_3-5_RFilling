@@ -2,19 +2,24 @@ spring:
   application:
     name: taxfiling-core
   
+  # H2 in-memory for development
   datasource:
-    url: jdbc:postgresql://localhost:5432/taxfiling
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:h2:mem:taxfiling;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: false
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
         jdbc:
           batch_size: 20
@@ -22,9 +27,7 @@ spring:
         order_updates: true
   
   flyway:
-    enabled: true
-    baseline-on-migrate: true
-    locations: classpath:db/migration
+    enabled: false  # Disabled for H2 dev mode; JPA auto-generates schema
   
   kafka:
     bootstrap-servers: localhost:9092
@@ -37,18 +40,18 @@ spring:
       group-id: taxfiling-core
       properties:
         spring.json.trusted.packages: "*"
+    # Disable auto-start when Kafka is not available
+    listener:
+      auto-startup: false
 
 server:
   port: 8080
-  servlet:
-    context-path: /api/v1
 
 logging:
   level:
     root: INFO
     com.itas.taxfiling: DEBUG
     org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
@@ -75,11 +78,11 @@ taxfiling:
   outbox:
     dispatcher:
       enabled: true
-      fixed-delay: 5000  # 5 seconds
+      fixed-delay: 5000
       batch-size: 100
   
   engine-adapters:
-    mode: mock  # mock or real
+    mode: mock
     
   idempotency:
     ttl-hours: 24

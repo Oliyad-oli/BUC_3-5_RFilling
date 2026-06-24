@@ -48,7 +48,7 @@ public class TaxReturn {
         TaxReturn taxReturn = new TaxReturn();
         taxReturn.id = UUID.randomUUID().toString();
         taxReturn.tin = tin;
-        taxType = taxType;
+        taxReturn.taxType = taxType;
         taxReturn.period = period;
         taxReturn.status = TaxReturnStatus.DRAFT;
         taxReturn.createdAt = Instant.now();
